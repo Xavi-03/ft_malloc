@@ -21,3 +21,10 @@ int get_size_header(size_t size)
 	else
 		return size + sysconf(_SC_PAGESIZE) + sizeof(t_block) + sizeof(t_header);
 }
+
+void	ft_write(char *str)
+{
+	int i = -1;
+	while (str[++i])
+		write(1, &str[i], 1);
+}
