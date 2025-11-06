@@ -11,7 +11,7 @@ t_header	*create_header_node(size_t size)
 	node = mmap((type == 3)?NULL:g_main_header, total_size, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANON, -1, 0);
 	if (!node)
 		return NULL;
-	current_allocs(ASIGNED, sizeof(t_header));
+	current_allocs_size(ASIGNED, sizeof(t_header));
 	//printf("header total size: %lu\ntype:%i\n", total_size, type);
 	node->size = total_size;
 	node->current_size = sizeof(t_header);
@@ -171,25 +171,4 @@ t_block	*get_block_from_header(size_t size, t_header *header)
 	//printf("LKL header->type: %i\n", header->type);
 	// block = add_last_block_to_header();
 	return block;
-}
-
-void	show_mallocs(void)
-{
-	t_header	*header = g_main_header;
-	t_block		*block = NULL;
-
-	printf("Current memory use: %lu\n", current_allocs(GET_MEMORY_SIZE, 0));
-	while (header)
-	{
-		printf("\nheader: %p\n\tsize: %lu\n\tcurrent: %lu\n\ttype: %i\n\n", header, header->size, header->current_size, header->type);
-		block = header->blocks;
-		while (block)
-		{
-			printf("\tblock:\t%p\n\tmem:\t%p\n\tsize: %lu\n\tstate: %i\n", block, block->mem, block->size, block->state);
-			block = block->next;
-			printf("\n");
-		}
-		printf("\n");
-		header = header->next;
-	}
 }

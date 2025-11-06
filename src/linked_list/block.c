@@ -4,7 +4,7 @@
 t_block	*create_block_node(size_t size, t_header *header_mem)
 {
 	//printf("creating block\n");
-	current_allocs(ASIGNED, sizeof(t_block));
+	current_allocs_size(ASIGNED, sizeof(t_block));
 	t_block	*node = (t_block *)header_mem;
 	node = (t_block *)((char *)node + sizeof(t_block) + header_mem->current_size);
 	node = (void *)(((uintptr_t)node + 15) & ~(uintptr_t)0xF);

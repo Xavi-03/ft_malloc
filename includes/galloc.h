@@ -6,7 +6,9 @@
 # include <sys/mman.h> // mmap munmap
 //# include <stdbool.h> // boolean
 # include <sys/resource.h> // getrlimit
-#include <stdint.h> // uintptr_t
+# include <stdint.h> // uintptr_t
+# include <pthread.h>
+# include "../libft/libft.h"
 
 # include <stdio.h> /// debug
 # include <stdlib.h>
@@ -40,8 +42,10 @@ typedef struct	s_block {
 	int		state;
 	struct	s_block *next;
 	struct	s_block *prev;
+	void	*xd; // useless but needed for align x16 in memory
 }	t_block;
 
+static pthread_mutex_t g_main_mutex = PTHREAD_MUTEX_INITIALIZER;
 static t_header *g_main_header = NULL;
 
 
@@ -52,29 +56,30 @@ void *galloc(size_t size);
 void	gfree(void *ptr);
 void	remove_header(t_header *header);
 
+// src/realloc.c
+void	*regalloc(void *ptr, size_t size);
+
 // src/allocator.c
 void *alloc_category(size_t size);
 
 // src/allocs_limits.c
-size_t	current_allocs(int state, size_t size);
-int check_current_allocs(size_t size);
+size_t	current_allocs_size(int state, size_t size);
 
 // src/utils.c
-int get_type_header(size_t size);
-int get_size_header(size_t size);
-void	ft_write(char *str);
+int		get_type_header(size_t size);
+int		get_size_header(size_t size);
+void	show_mallocs(void);
 
 // src/linked_list/header.c
-t_header	*create_header_node(size_t size);
-t_header	*get_last_header(t_header *list);
 t_header	*get_main_header(void);
 void		set_main_header(void *ptr);
+t_header	*create_header_node(size_t size);
+t_header	*get_last_header(t_header *list);
 t_header	*get_header_node(size_t size);
-t_header	*get_header_node_from_context(size_t size, t_header *header);
+//t_header	*get_header_node_from_context(size_t size, t_header *header);
 void 		*get_header_mem(size_t size, t_header *header);
 t_block		*add_block_to_header(size_t size, t_header *header);
 t_block		*get_block_from_header(size_t size, t_header *header);
-void		show_mallocs(void);
 int			check_header_blocks_size(size_t size, t_header *header);
 
 // src/linked_list/block.c
