@@ -14,7 +14,7 @@ void *galloc(size_t size) {
 	current_allocs_size(ASIGNED, size);
 	//printf("header: %p header type: %i\n\tblock:\t%p\n\tptr:\t%p \n\n", header, header->type, block, ptr);
 	pthread_mutex_unlock(&(g_main_mutex));
-	printf("ptr returned: %p\n", ptr);
+	//printf("ptr returned: %p\n", ptr);
 	return ptr;
 
 		//void *ptr;

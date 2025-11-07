@@ -1,5 +1,22 @@
 #include "../../includes/galloc.h"
 
+void	*get_mmap_region(int header_type, size_t header_total_size)
+{
+	t_header *header = get_main_header();
+	if (!header || header_type == 3)
+		return mmap(NULL, header_total_size, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANON, -1, 0);
+	else
+	{
+		while (header)
+		{
+			if (header->type != 3)
+				return mmap(header, header_total_size, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANON, -1, 0);
+			header = header->next;
+		}
+	}
+	return NULL;
+}
+
 t_header	*create_header_node(size_t size)
 {
 	//printf("creating header addres global:%p\n", g_main_header);
@@ -7,8 +24,8 @@ t_header	*create_header_node(size_t size)
 	int			type = get_type_header(size);
 	size_t		total_size = get_size_header(size);
 
-	//printf("mmap: %p\n", (type == 3)?g_main_header:NULL);
-	node = mmap((type == 3)?NULL:g_main_header, total_size, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANON, -1, 0);
+	node = get_mmap_region(type, total_size);
+	//node = mmap((type == 3)?NULL:g_main_header, total_size, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANON, -1, 0);
 	if (!node)
 		return NULL;
 	current_allocs_size(ASIGNED, sizeof(t_header));
@@ -23,8 +40,6 @@ t_header	*create_header_node(size_t size)
 		g_main_header = node;
 	else
 		node->prev->next = node;
-	//create_block_pading(node);
-	//printf("KLK type: %i header->type: %i\n", type, node->type);
 	return node;
 }
 
@@ -80,48 +95,6 @@ t_header	*get_header_node(size_t size)
 		header = create_header_node(size);
 	//printf("KLK header->type: %i\n", header->type);
 	return header;
-}
-
-t_header	*get_header_node_from_context(size_t size, t_header *header)
-{
-	if (!header)
-		return NULL;
-	while (header)
-	{
-		if (header->size - header->current_size > size \
-			&& header->type == get_type_header(size))
-		{
-			// need check here if is good spot incluiding padding
-			return header;
-		}
-		header = header->next;
-	}
-	if (!header)
-		header = create_header_node(size);
-	return header;
-}
-
-t_header	*get_last_header(t_header *list)
-{
-	t_header *tmp_node = NULL;
-
-	if (!list)
-		return NULL;
-	tmp_node = list;
-	while (tmp_node->next)
-		tmp_node = tmp_node->next;
-	return tmp_node;
-}
-
-t_header	*get_main_header(void)
-{
-	t_header	*ptr = g_main_header;
-	return ptr;
-}
-
-void	set_main_header(void *ptr)
-{
-	g_main_header = ptr;
 }
 
 t_block	*add_block_to_header(size_t size, t_header *header)

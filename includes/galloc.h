@@ -62,21 +62,24 @@ void	*regalloc(void *ptr, size_t size);
 // src/allocator.c
 void *alloc_category(size_t size);
 
+// src/global_managment.c
+t_header	*get_main_header(void);
+void		set_main_header(void *ptr);
+
 // src/allocs_limits.c
+
+
+// src/debbug
+void	show_mallocs(void);
 size_t	current_allocs_size(int state, size_t size);
 
 // src/utils.c
 int		get_type_header(size_t size);
 int		get_size_header(size_t size);
-void	show_mallocs(void);
 
 // src/linked_list/header.c
-t_header	*get_main_header(void);
-void		set_main_header(void *ptr);
 t_header	*create_header_node(size_t size);
-t_header	*get_last_header(t_header *list);
 t_header	*get_header_node(size_t size);
-//t_header	*get_header_node_from_context(size_t size, t_header *header);
 void 		*get_header_mem(size_t size, t_header *header);
 t_block		*add_block_to_header(size_t size, t_header *header);
 t_block		*get_block_from_header(size_t size, t_header *header);
@@ -85,10 +88,11 @@ int			check_header_blocks_size(size_t size, t_header *header);
 // src/linked_list/block.c
 t_block		*create_block_node(size_t size, t_header *header_mem);
 void		*asign_block(size_t size, t_block *block, t_header *header);
-t_block		*get_last_block(t_block *list);
 t_header	*find_header_from_block(t_block *block);
-// src/linked_list/utils.c
 
+// src/linked_list/linked_list_utils.c
+t_header	*get_last_header(t_header *list);
+t_block		*get_last_block(t_block *list);
 
 #endif
 

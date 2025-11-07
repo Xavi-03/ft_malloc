@@ -11,7 +11,7 @@ t_block	*create_block_node(size_t size, t_header *header_mem)
 	//printf("sizes header:%lu, block:%lu\n", sizeof(t_header), sizeof(t_block));
 	node->mem = (void *)((char *)node + (size_t)sizeof(t_block));
 	//node->mem = (void *)(((uintptr_t)node->mem + 15) & ~(uintptr_t)0xF);
-	printf("mem pointer in block --- %p\n", node->mem);
+	//printf("mem pointer in block --- %p\n", node->mem);
 	node->size = size + (size_t)sizeof(t_block);
 	node->state = FREE;
 	node->next = NULL;
@@ -31,21 +31,6 @@ void	*asign_block(size_t size, t_block *block, t_header *header)
 	return block->mem;
 }//(void*)((char*)block + sizeof(t_block));
 
-t_block	*get_last_block(t_block *list)
-{
-	t_block *tmp_node = NULL;
-
-	if (!list)
-		return NULL;
-	tmp_node = list;
-	while (tmp_node->next)
-	{
-		//printf("a\n");
-		tmp_node = tmp_node->next;
-	}
-	return tmp_node;
-}
-
 t_header	*find_header_from_block(t_block *block)
 {
 	t_header	*header = get_main_header();
@@ -57,7 +42,7 @@ t_header	*find_header_from_block(t_block *block)
 		//printf("header address %p\n", header);
 		while (tmp_block)
 		{
-			printf("comparation %p %p\n", tmp_block, block);
+			//printf("comparation %p %p\n", tmp_block, block);
 			if (tmp_block == block)
 				return header;
 			tmp_block = tmp_block->next;
