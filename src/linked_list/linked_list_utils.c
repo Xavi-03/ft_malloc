@@ -21,7 +21,7 @@ t_block	*get_last_block(t_block *list)
 	tmp_node = list;
 	while (tmp_node->next)
 	{
-		//printf("a\n");
+
 		tmp_node = tmp_node->next;
 	}
 	return tmp_node;

@@ -66,6 +66,11 @@ void *alloc_category(size_t size);
 t_header	*get_main_header(void);
 void		set_main_header(void *ptr);
 
+// src/memoty_managment.c
+void	*get_mmap_region(int header_type, size_t header_total_size);
+void	defragment_header(t_header *header, t_block *block);
+void	split_block(t_header *header, t_block *block, size_t size);
+
 // src/allocs_limits.c
 
 
@@ -87,6 +92,7 @@ int			check_header_blocks_size(size_t size, t_header *header);
 
 // src/linked_list/block.c
 t_block		*create_block_node(size_t size, t_header *header_mem);
+t_block		*create_block_from_ptr(size_t size, void *ptr);
 void		*asign_block(size_t size, t_block *block, t_header *header);
 t_header	*find_header_from_block(t_block *block);
 
