@@ -12,6 +12,20 @@ void print_memory_limits(void)
 {
     struct rlimit lim;
 
+    galloc(200);
+    galloc(20);
+    galloc(200);
+    galloc(20000);
+    galloc(20);
+    galloc(20000);
+    show_mallocs();
+    void *ptr;
+    printf("1 %p\n", ptr);
+    ptr = malloc(10000);
+    printf("2 %p\n", ptr);
+    free(ptr);
+    printf("3 %p\n", ptr);
+    ptr = malloc(10000);
     if (getrlimit(RLIMIT_AS, &lim) == 0)
     {
         printf("Virtual address space limit: ");
