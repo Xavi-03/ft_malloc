@@ -3,7 +3,7 @@
 	MMAP:
 		return: In error mmap reeturn MAP_FAILED
 		the first argument of mmap will be NULL \
-		if is the first header or header->state == LARGER
+		if is the first header or header->type == LARGER
 */
 void	*get_mmap_region(int header_type, size_t header_total_size)
 {

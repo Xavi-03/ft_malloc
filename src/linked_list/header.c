@@ -48,13 +48,6 @@ int	check_header_blocks_size(size_t size, t_header *header)
 t_header	*get_header_node(size_t size)
 {
 	t_header *header = get_main_header();
-
-	if (!header)
-	{
-		header = create_header_node(size);
-		return header;
-	}
-
 	while (header)
 	{
 		// type 3 need his exclusive header

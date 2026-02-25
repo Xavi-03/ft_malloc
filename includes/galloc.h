@@ -17,20 +17,33 @@
 # define N 128
 # define M 1024
 
-// Headers Sizes
-# define TINY 1
+
+/*# define TINY 1
 # define SMALL 2
 # define LARGE 3
 
-// Blocks States
+
 # define GET_MEMORY_SIZE 0
 # define FREE 1
-# define ASIGNED 2
+# define ASIGNED 2*/
+// Headers Sizes
+typedef enum e_type {
+	TINY,
+	SMALL,
+	LARGE
+} t_type;
+
+// Blocks States
+typedef enum e_state {
+	GET_MEMORY_SIZE,
+	FREE,
+	ASIGNED
+} t_state;
 
 typedef struct	s_header {
 	size_t	size;
 	size_t	current_size;
-	int		type;
+	t_type	type;
 	struct	s_block *blocks;
 	struct	s_header *next;
 	struct	s_header *prev;
@@ -39,7 +52,7 @@ typedef struct	s_header {
 typedef struct	s_block {
 	void	*mem;
 	size_t	size;
-	int		state;
+	t_state	state;
 	struct	s_block *next;
 	struct	s_block *prev;
 	void	*xd; // useless but needed for align x16 in memory

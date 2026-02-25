@@ -1,8 +1,8 @@
 CC      := clang
 NAME    := ft_malloc
-CFLAGS  := -g -Wall -Werror -Wextra
+CFLAGS  := #-g -Wall -Werror -Wextra
 
-LIBFT   := ./libs/libft
+LIBFT   := ./libft
 
 INCLUDE_DIR := ./include
 SRC_DIR := ./src/
@@ -13,9 +13,21 @@ LIBFT_INC := $(LIBFT)/includes
 HEADERS := -I $(INCLUDE_DIR) -I $(LIBFT_INC)
 LIBS    := -L $(LIBFT_LIB)
 
-SRCS := *.c */*.c
 
-OBJS := $(SRCS:.c=.o)
+SRCS := src/debbug.c \
+		src/galloc.c \
+		src/gfree.c \
+		src/global_managment.c \
+		src/memory_managment.c \
+		src/realloc.c \
+		src/utils.c \
+		src/linked_list/block.c \
+		src/linked_list/header.c \
+		src/linked_list/linked_list_utils.c \
+		src/main.c
+
+OBJ_DIR := obj
+OBJS := $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
 
 all: $(NAME)
 
