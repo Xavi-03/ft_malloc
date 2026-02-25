@@ -5,9 +5,14 @@ t_block	*create_block_node(size_t size, t_header *header_mem)
 {
 	//current_allocs_size(ASIGNED, sizeof(t_block));
 	t_block	*node = (t_block *)header_mem;
-	node = (t_block *)((char *)node + sizeof(t_block) + header_mem->current_size);
+	node = (t_block *)((uintptr_t)(((char *)node + sizeof(t_block) + header_mem->current_size)) + (uintptr_t)(((uintptr_t)node + 15) & ~(uintptr_t)0xF) - (uintptr_t)node);
+	printf("--- size t_block %lu\n", sizeof(t_block));
+	//printf("padding %lu\n", padding);
+	printf("node is this aligned? %p\n", node);
 	node = (void *)(((uintptr_t)node + 15) & ~(uintptr_t)0xF);
+	printf("node is this aligned? %p\n", node);
 	node->mem = (void *)((char *)node + (size_t)sizeof(t_block));
+	printf("node->mem is this aligned? %p\n", node->mem);
 	//node->mem = (void *)(((uintptr_t)node->mem + 15) & ~(uintptr_t)0xF);
 	node->size = size + (size_t)sizeof(t_block);
 	node->state = FREE;

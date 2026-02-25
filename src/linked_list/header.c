@@ -85,7 +85,6 @@ t_block	*add_block_to_header(size_t size, t_header *header)
 
 	if (tmp_block != block)
 	{
-
 		block->prev = tmp_block;
 		tmp_block->next = block;
 	}

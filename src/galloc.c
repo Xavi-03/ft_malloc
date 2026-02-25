@@ -2,6 +2,7 @@
 
 
 
+
 void *galloc(size_t size) {
 
 	if (size == 0)
@@ -28,6 +29,5 @@ void *galloc(size_t size) {
 
 
 	pthread_mutex_unlock(&(g_main_mutex));
-
 	return ptr;
 }
