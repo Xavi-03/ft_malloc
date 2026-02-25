@@ -51,6 +51,11 @@ void print_memory_limits(void)
 
 int main(void)
 {
-    print_memory_limits();
+	char *ptr;
+    //print_memory_limits();
+    for (int i = 0; i < 100; i++)
+    	ptr = galloc(1000000);
+    ptr[0] = 'a';
+    //gfree(ptr);
     return 0;
 }

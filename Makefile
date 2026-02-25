@@ -1,9 +1,8 @@
 CC      := clang
 NAME    := ft_malloc
-CFLAGS  := #-g -Wall -Werror -Wextra
+CFLAGS  := -fsanitize=address#-g -Wall -Werror -Wextra
 
 LIBFT   := ./libft
-
 INCLUDE_DIR := ./include
 SRC_DIR := ./src/
 
@@ -11,7 +10,7 @@ LIBFT_LIB := $(LIBFT)
 LIBFT_INC := $(LIBFT)/includes
 
 HEADERS := -I $(INCLUDE_DIR) -I $(LIBFT_INC)
-LIBS    := -L $(LIBFT_LIB)
+LIBS    := -L $(LIBFT_LIB)/ -lft
 
 
 SRCS := src/debbug.c \
@@ -35,7 +34,8 @@ all: $(NAME)
 libft: Makefile
 	@make -s -C $(LIBFT)
 
-%.o: %.c $(HEADERS) Makefile
+$(OBJ_DIR)/%.o: %.c Makefile
+	@mkdir -p $(dir $@)
 	@$(CC) $(CFLAGS) -o $@ -c $< $(HEADERS) && printf "Compiling: $(notdir $<)\n"
 
 $(NAME): libft $(OBJS) Makefile
@@ -43,6 +43,7 @@ $(NAME): libft $(OBJS) Makefile
 
 clean:
 	@rm -rf $(OBJS)
+	@rm -rf $(OBJ_DIR)
 	@make -s -C $(LIBFT) clean
 
 fclean: clean
