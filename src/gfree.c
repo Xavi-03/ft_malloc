@@ -6,6 +6,7 @@ void	gfree(void *ptr)
 	if (!ptr)
 	{
 		write(1, "free(): invalid pointer\n", 24);
+		pthread_mutex_unlock(&(g_main_mutex));
 		return ;
 	}
 
@@ -15,6 +16,7 @@ void	gfree(void *ptr)
 	if (!header)
 	{
 		printf("free(): invalid pointer\n");
+		pthread_mutex_unlock(&(g_main_mutex));
 		return ;
 	}
 

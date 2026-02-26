@@ -13,6 +13,15 @@ size_t	current_allocs_size(int state, size_t size)
 	return 0;
 }
 
+static char	*block_state(t_state state) {
+	if (state == ASIGNED)
+		return "ASIGNED";
+	else if (state == FREE)
+		return "FREE";
+	else
+		return "ERROR";
+}
+
 void	show_mallocs(void)
 {
 	t_header	*header = get_main_header();
@@ -25,7 +34,7 @@ void	show_mallocs(void)
 		block = header->blocks;
 		while (block)
 		{
-			printf("\tblock:\t%p\n\tmem:\t%p\n\tsize: %lu\n\tstate: %i\n", block, block->mem, block->size, block->state);
+			printf("\tblock:\t\t%p\n\tmem:\t\t%p\n\tsize:\t\t%lu\n\tpadding:\t%lu\n\tstate:\t\t%s\n", block, block->mem, block->size, block->padding, block_state(block->state));
 			block = block->next;
 			printf("\n\n");
 		}

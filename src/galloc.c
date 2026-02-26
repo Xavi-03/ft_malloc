@@ -23,7 +23,7 @@ void *galloc(size_t size) {
 	//printf("current block size: %lu size needed: %lu\n", block->size - sizeof(t_block), size);
 	if (block->size - sizeof(t_block) > size)
 	{
-		split_block(header, block, size);
+		split_block(block, size);
 	}
 	void *ptr = asign_block(size, block, header);
 

@@ -5,7 +5,7 @@
 		the first argument of mmap will be NULL \
 		if is the first header or header->type == LARGER
 */
-void	*get_mmap_region(int header_type, size_t header_total_size)
+void	*get_mmap_region(size_t header_total_size)
 {
 	t_header *header = get_main_header();
 	while (header)
@@ -57,7 +57,7 @@ void	defragment_header(t_header *header, t_block *block)
 		BLOCK1(state: ASIG, size 50)->BLOCK2(state: FREE, size 50)->BLOCK3(state: ASIG, size 100)
 
 */
-void	split_block(t_header *header, t_block *block, size_t size)
+void	split_block(t_block *block, size_t size)
 {
 	// Check if is enough space for the alignment of the memory
 	if (block->size - (size + sizeof(t_block)) < 17)

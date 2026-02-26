@@ -1,6 +1,6 @@
 CC      := clang
 NAME    := ft_malloc
-CFLAGS  := #-g -Wall -Werror -Wextra
+CFLAGS  := -g -Wall -Werror -Wextra
 
 LIBFT   := ./libft
 INCLUDE_DIR := ./include

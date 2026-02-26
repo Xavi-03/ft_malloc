@@ -3,21 +3,28 @@
 // (void *)((char *)node->mem + ((uintptr_t)node % 16 == 0)? (uintptr_t)node % 16 : 16);
 t_block	*create_block_node(size_t size, t_header *header_mem)
 {
-	//current_allocs_size(ASIGNED, sizeof(t_block));
-	t_block	*node = (t_block *)header_mem;
-	node = (t_block *)((uintptr_t)(((char *)node + sizeof(t_block) + header_mem->current_size)) + (uintptr_t)(((uintptr_t)node + 15) & ~(uintptr_t)0xF) - (uintptr_t)node);
-	printf("--- size t_block %lu\n", sizeof(t_block));
-	//printf("padding %lu\n", padding);
+
+	printf("--- size t_block %lu uint64_t size %lu\n", sizeof(t_block), sizeof(uint64_t));
+	t_block *node = (t_block *)((uintptr_t)header_mem + (uintptr_t)(sizeof(t_block) + header_mem->current_size));
+
+	uint8_t	padding = (uintptr_t)((((uintptr_t)node + 15) & ~(uintptr_t)0xF) - (uintptr_t)node);
+
 	printf("node is this aligned? %p\n", node);
-	node = (void *)(((uintptr_t)node + 15) & ~(uintptr_t)0xF);
+	node = (t_block *)((((uintptr_t)node + 15) & ~(uintptr_t)0xF));
 	printf("node is this aligned? %p\n", node);
-	node->mem = (void *)((char *)node + (size_t)sizeof(t_block));
-	printf("node->mem is this aligned? %p\n", node->mem);
+
+
+	node->mem = (void *)((uintptr_t)node + (size_t)sizeof(t_block));
+	printf("node->mem is this aligned? %p\n\n", node->mem);
+
+
 	//node->mem = (void *)(((uintptr_t)node->mem + 15) & ~(uintptr_t)0xF);
-	node->size = size + (size_t)sizeof(t_block);
+	node->padding = padding;
+	node->size = size + (size_t)sizeof(t_block) + padding;// + padding;
 	node->state = FREE;
 	node->next = NULL;
 	node->prev = NULL;
+	printf("size %lu\n\n\n\n\n", node->size);
 	return node;
 }
 
@@ -41,10 +48,10 @@ void	*asign_block(size_t size, t_block *block, t_header *header)
 		return NULL;
 	if (block->size < size + sizeof(t_block))
 		return NULL;
-	block->size = size + sizeof(t_block);
+	//block->size = size + sizeof(t_block);
 	block->state = ASIGNED;
-	header->current_size += size + sizeof(t_block);
-	current_allocs_size(ASIGNED, size + sizeof(t_block));
+	header->current_size += block->size;
+	current_allocs_size(ASIGNED, block->size);//size + sizeof(t_block));
 	return block->mem;
 }//(void*)((char*)block + sizeof(t_block));
 
@@ -66,12 +73,3 @@ t_header	*find_header_from_block(t_block *block)
 	}
 	return header;
 }
-
-/*t_block	*init_block_pading(t_header *header)
-{
-	if (header->blocks)
-		return NULL;
-	t_block *block = (void *)((char *)header + sizeof(t_header *));
-	block->mem = NULL;
-	block->size = (size_t)block % 16;
-	}*/

@@ -6,7 +6,7 @@ t_header	*create_header_node(size_t size)
 	int			type = get_type_header(size);
 	size_t		total_size = get_size_header(size);
 
-	node = get_mmap_region(type, total_size);
+	node = get_mmap_region(total_size);
 	if (node == MAP_FAILED)
 		return NULL;
 	current_allocs_size(ASIGNED, sizeof(t_header));

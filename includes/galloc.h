@@ -52,10 +52,10 @@ typedef struct	s_header {
 typedef struct	s_block {
 	void	*mem;
 	size_t	size;
+	uint64_t	padding;
 	t_state	state;
 	struct	s_block *next;
 	struct	s_block *prev;
-	void	*xd; // useless but needed for align x16 in memory
 }	t_block;
 
 static pthread_mutex_t g_main_mutex = PTHREAD_MUTEX_INITIALIZER;
@@ -80,9 +80,9 @@ t_header	*get_main_header(void);
 void		set_main_header(void *ptr);
 
 // src/memoty_managment.c
-void	*get_mmap_region(int header_type, size_t header_total_size);
+void	*get_mmap_region(size_t header_total_size);
 void	defragment_header(t_header *header, t_block *block);
-void	split_block(t_header *header, t_block *block, size_t size);
+void	split_block(t_block *block, size_t size);
 
 // src/allocs_limits.c
 
@@ -92,8 +92,8 @@ void	show_mallocs(void);
 size_t	current_allocs_size(int state, size_t size);
 
 // src/utils.c
-int		get_type_header(size_t size);
-int		get_size_header(size_t size);
+t_type		get_type_header(size_t size);
+int			get_size_header(size_t size);
 
 // src/linked_list/header.c
 t_header	*create_header_node(size_t size);

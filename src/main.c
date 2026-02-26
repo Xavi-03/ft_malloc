@@ -59,8 +59,8 @@ void print_memory_limits(void)
 
 void *memory() {
 
-	for (int i = 0; i < 3; i++) {
-		galloc(10);
+	for (int i = 0; i < 4; i++) {
+		galloc(1);
 	}
 	return NULL;
 }
@@ -71,18 +71,37 @@ void process_mem(void) {
 	for (int i = 0; i < 3; i++)
 		pthread_create(&ida, NULL, memory, NULL);
 
-	for (int i = 0; i < 3; i++) {
-		galloc(10);
+	for (int i = 0; i < 4; i++) {
+		galloc(1);
 	}
 	sleep(3);
+	void *ptr = galloc(1);
+	galloc (1);
+	gfree(ptr);
+	ptr = galloc(1);
+	galloc(20);
+	gfree(ptr);
+	galloc(20);
+	show_mallocs();
+}
+
+void ft_memory() {
+	for (int i = 0; i < 3; i++) {
+		galloc(1);
+	}
+	show_mallocs();
+	void *ptr = galloc(1);
+	gfree(ptr);
+	gfree(ptr);
 	show_mallocs();
 }
 
 int main(void)
 {
-	char *ptr;
+	//char *ptr;
     //print_memory_limits();
     process_mem();
+    //ft_memory();
     //gfree(ptr);
     return 0;
 }
