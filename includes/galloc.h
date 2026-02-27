@@ -17,6 +17,18 @@
 # define N 128
 # define M 1024
 
+#ifndef SHOW_MALLOC
+	# define SHOW_MALLOC 0
+#endif
+
+#ifndef SHOW_MALLOC_INFO
+	# define SHOW_MALLOC_INFO 0
+#endif
+
+#ifndef SHOW_DUMP
+	# define SHOW_DUMP 0
+#endif
+
 
 /*# define TINY 1
 # define SMALL 2
@@ -41,21 +53,21 @@ typedef enum e_state {
 } t_state;
 
 typedef struct	s_header {
-	size_t	size;
-	size_t	current_size;
-	t_type	type;
-	struct	s_block *blocks;
-	struct	s_header *next;
-	struct	s_header *prev;
+	size_t				size;
+	size_t				current_size;
+	t_type				type;
+	struct	s_block		*blocks;
+	struct	s_header	*next;
+	struct	s_header	*prev;
 }	t_header;
 
 typedef struct	s_block {
-	void	*mem;
-	size_t	size;
-	uint64_t	padding;
-	t_state	state;
-	struct	s_block *next;
-	struct	s_block *prev;
+	void			*mem;
+	size_t			size;
+	uint64_t		real_size;
+	t_state			state;
+	struct	s_block	*next;
+	struct	s_block	*prev;
 }	t_block;
 
 static pthread_mutex_t g_main_mutex = PTHREAD_MUTEX_INITIALIZER;
@@ -90,6 +102,9 @@ void	split_block(t_block *block, size_t size);
 // src/debbug
 void	show_mallocs(void);
 size_t	current_allocs_size(int state, size_t size);
+void	show_alloc_mem_ex(void);
+void	show_dump(t_block *block);
+void	debug_mode(t_block *block, char *type);
 
 // src/utils.c
 t_type		get_type_header(size_t size);

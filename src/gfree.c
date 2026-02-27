@@ -28,6 +28,8 @@ void	gfree(void *ptr)
 	if (get_last_block(header->blocks) == header->blocks \
 		&& header->blocks->state == FREE)
 		remove_header(header);
+
+	debug_mode(block, "FREE");
 	pthread_mutex_unlock(&(g_main_mutex));
 }
 

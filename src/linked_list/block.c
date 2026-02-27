@@ -19,7 +19,7 @@ t_block	*create_block_node(size_t size, t_header *header_mem)
 
 
 	//node->mem = (void *)(((uintptr_t)node->mem + 15) & ~(uintptr_t)0xF);
-	node->padding = padding;
+	node->real_size = size + padding;
 	node->size = size + (size_t)sizeof(t_block) + padding;// + padding;
 	node->state = FREE;
 	node->next = NULL;

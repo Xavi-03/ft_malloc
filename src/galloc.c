@@ -27,7 +27,7 @@ void *galloc(size_t size) {
 	}
 	void *ptr = asign_block(size, block, header);
 
-
+	debug_mode(block, "MALLOC");
 	pthread_mutex_unlock(&(g_main_mutex));
 	return ptr;
 }

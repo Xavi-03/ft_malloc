@@ -82,7 +82,11 @@ void process_mem(void) {
 	galloc(20);
 	gfree(ptr);
 	galloc(20);
-	show_mallocs();
+	//show_mallocs();
+	galloc(100);
+	galloc(1);
+	galloc(120);
+	show_alloc_mem_ex();
 }
 
 void ft_memory() {

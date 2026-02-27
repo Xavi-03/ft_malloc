@@ -43,6 +43,8 @@ void	*regalloc(void *ptr, size_t size)
 	new_ptr = galloc(size);
 	new_ptr = ft_memcpy(new_ptr, ptr, block->size - sizeof(t_block));
 	gfree(ptr);
+
+	debug_mode(block, "REALLOC");
 	pthread_mutex_unlock(&(g_main_mutex));
 	return new_ptr;
 }
