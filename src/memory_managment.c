@@ -31,6 +31,7 @@ void	defragment_header(t_header *header, t_block *block)
 	if (block->prev && block->prev->state == FREE)
 	{
 		block->prev->size += block->size;
+		//block->prev->mem_size += block->mem_size;
 		header->current_size -= sizeof(t_block);
 
 		block->prev->next = block->next;
@@ -60,14 +61,22 @@ void	defragment_header(t_header *header, t_block *block)
 void	split_block(t_block *block, size_t size)
 {
 	// Check if is enough space for the alignment of the memory
-	if (block->size - (size + sizeof(t_block)) < 17)
+	if (block->size - (size + sizeof(t_block)) < 16) {
+		printf("pero estoooooooooooooooooooooooo queeeeee essssssssssssssssssssssss\n");
 		return ;
+	}
+	printf("original block size %lu mem %lu\n", block->size, block->mem_size);
+	size_t padding = 16 - (size % 16);
+	block->mem_size = size + padding;
 	// create_block_from_ptr arguments:
 	//		-1: subtract the memory from the first block for the second block
 	// 		-2: move the pointer out of his own memory
-	t_block	*new_block = create_block_from_ptr(block->size - (size + sizeof(t_block)), \
-		(t_block*)((char*)block + sizeof(t_block) + size));
-	new_block->size = block->size - (size + sizeof(t_block)); // substract the size from first block
+	t_block	*new_block = create_block_from_ptr(block->size - (block->mem_size + sizeof(t_block)), \
+		(t_block*)((uintptr_t)block + sizeof(t_block) + size));
+	//new_block->size = block->size - size + sizeof(t_block); // substract the size from first block
+	block->size -= new_block->size;
+	printf("original block size %lu mem %lu\n", block->size, block->mem_size);
+	printf("new block size %lu mem %lu\n", new_block->size, new_block->mem_size);
 	// connect the new block with the others
 	if (block->next)
 	{

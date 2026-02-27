@@ -22,6 +22,17 @@ static char	*block_state(t_state state) {
 		return "ERROR";
 }
 
+static char *header_type(t_type type) {
+	if (type == TINY)
+		return "TINY";
+	else if (type == SMALL)
+		return "SMALL";
+	else if (type == LARGE)
+		return "LARGE";
+	else
+		return "ERROR";
+}
+
 void	show_mallocs(void)
 {
 	t_header	*header = get_main_header();
@@ -30,11 +41,11 @@ void	show_mallocs(void)
 	printf("Current memory use: %lu\n", current_allocs_size(GET_MEMORY_SIZE, 0));
 	while (header)
 	{
-		printf("\nheader: %p\n\tsize: %lu\n\tcurrent: %lu\n\ttype: %i\n\n", header, header->size, header->current_size, header->type);
+		printf("\nheader: %p\n\tsize: %lu\n\tcurrent: %lu\n\ttype: %s\n\n", header, header->size, header->current_size, header_type(header->type));
 		block = header->blocks;
 		while (block)
 		{
-			printf("\tblock:\t\t%p\n\tmem:\t\t%p\n\tsize:\t\t%lu\n\treal_size:\t%lu\n\tstate:\t\t%s\n", block, block->mem, block->size, block->real_size, block_state(block->state));
+			printf("\tblock:\t\t%p\n\tmem:\t\t%p\n\tsize:\t\t%lu\n\tmem_size:\t%lu\n\tstate:\t\t%s\n", block, block->mem, block->size, block->mem_size, block_state(block->state));
 			block = block->next;
 			printf("\n\n");
 		}
@@ -55,7 +66,7 @@ void	show_alloc_mem_ex(void)
 		block = header->blocks;
 		while (block)
 		{
-			printf("\tblock:\t\t%p\n\tmem:\t\t%p\n\tsize:\t\t%lu\n\treal_size:\t%lu\n\tstate:\t\t%s\n", block, block->mem, block->size, block->real_size, block_state(block->state));
+			printf("\tblock:\t\t%p\n\tmem:\t\t%p\n\tsize:\t\t%lu\n\tmem_size:\t%lu\n\tstate:\t\t%s\n", block, block->mem, block->size, block->mem_size, block_state(block->state));
 
 
 			show_dump(block);
@@ -72,25 +83,27 @@ void	show_dump(t_block *block) {
 
 	mem = block->mem;
 	printf("\n\t");
-	for (uint64_t i = 0; i < block->real_size; i++) {
+	for (uint64_t i = 0; i < block->mem_size; i++) {
 		printf("%02x", mem[i]);
 
-		if ((i + 1) % 16 == 0)
+		if (i + 1 != block->mem_size && (i + 1) % 64 == 0)
+			printf("\n\n\t");
+		else if (i + 1 != block->mem_size && (i + 1) % 16 == 0)
 			printf("\n\t");
-		else if (i + 1 != block->real_size && (i + 1) % 8 == 0)
+		else if (i + 1 != block->mem_size && (i + 1) % 8 == 0)
 			printf("  ");
-		else if (i + 1 == block->real_size)
-			printf("\n\n\n\n");
+		else if (i + 1 == block->mem_size)
+			printf("\n\n\n");
 		else
 			printf(" ");
 	}
 }
 
-void debug_mode(t_block *block, char *type) {
+void debug_mode(t_block *block, char *type, size_t size) {
 	if (SHOW_MALLOC)
-		printf("\t##  %s  ##\n\n", type);
+		printf("\t##  %s  ##  block size %lu  ##  mem size %lu  ##  param size %lu  ##\n\n", type, block->size, block->mem_size, size);
 	if (SHOW_MALLOC_INFO)
-		printf("\tblock:\t\t%p\n\tmem:\t\t%p\n\tsize:\t\t%lu\n\treal_size:\t%lu\n", block, block->mem, block->size, block->real_size);
+		printf("\tblock:\t\t%p\n\tmem:\t\t%p\n\tsize:\t\t%lu\n\tmem_size:\t%lu\n", block, block->mem, block->size, block->mem_size);
 	if (SHOW_DUMP) {
 		show_dump(block);
 		printf("\n");

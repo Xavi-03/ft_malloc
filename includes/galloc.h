@@ -29,6 +29,9 @@
 	# define SHOW_DUMP 0
 #endif
 
+#ifndef CALLOC
+	# define CALLOC 0
+#endif
 
 /*# define TINY 1
 # define SMALL 2
@@ -64,7 +67,7 @@ typedef struct	s_header {
 typedef struct	s_block {
 	void			*mem;
 	size_t			size;
-	uint64_t		real_size;
+	uint64_t		mem_size;
 	t_state			state;
 	struct	s_block	*next;
 	struct	s_block	*prev;
@@ -104,7 +107,7 @@ void	show_mallocs(void);
 size_t	current_allocs_size(int state, size_t size);
 void	show_alloc_mem_ex(void);
 void	show_dump(t_block *block);
-void	debug_mode(t_block *block, char *type);
+void	debug_mode(t_block *block, char *type, size_t size);
 
 // src/utils.c
 t_type		get_type_header(size_t size);

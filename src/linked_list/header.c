@@ -100,11 +100,12 @@ t_block	*get_block_from_header(size_t size, t_header *header)
 
 	while(block)//while(block && block->next)
 	{
-
+		// 15 is max padding needed in address for align memory
 		if (block->state == FREE \
-			&& block->size > size + sizeof(t_block) \
-			&& header->size > header->current_size + sizeof(t_block)) //
+			&& block->size > size + sizeof(t_block) + 15 \
+			&& header->size > header->current_size + size + sizeof(t_block) + 15)
 		{
+			printf("##  Block free found  ##  total size %lu  ##  size need %lu  ##\n", block->size, size + sizeof(t_block));
 			//current_allocs_size(ASIGNED, sizeof(t_block));
 			return block;
 		}

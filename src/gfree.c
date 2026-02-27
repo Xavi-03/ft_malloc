@@ -29,7 +29,7 @@ void	gfree(void *ptr)
 		&& header->blocks->state == FREE)
 		remove_header(header);
 
-	debug_mode(block, "FREE");
+	debug_mode(block, "FREE", 0);
 	pthread_mutex_unlock(&(g_main_mutex));
 }
 

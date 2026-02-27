@@ -67,25 +67,31 @@ void *memory() {
 
 void process_mem(void) {
 
-	pthread_t ida;
-	for (int i = 0; i < 3; i++)
+	//pthread_t ida;
+	/*for (int i = 0; i < 3; i++)
 		pthread_create(&ida, NULL, memory, NULL);
 
 	for (int i = 0; i < 4; i++) {
 		galloc(1);
-	}
-	sleep(3);
-	void *ptr = galloc(1);
-	galloc (1);
+		}
+		sleep(3);*/
+	galloc(1);
+	void *ptr = galloc (1);
 	gfree(ptr);
 	ptr = galloc(1);
-	galloc(20);
 	gfree(ptr);
-	galloc(20);
+	ptr = galloc(20);
+	gfree(ptr);
+	//gfree(ptr);
+	ptr = galloc(20);
+	gfree(ptr);
 	//show_mallocs();
-	galloc(100);
-	galloc(1);
+	ptr = galloc(100);
+	gfree(ptr);
+	ptr = galloc(1);
+	gfree(ptr);
 	galloc(120);
+	galloc(1);
 	show_alloc_mem_ex();
 }
 

@@ -1,6 +1,8 @@
 CC      := clang
 NAME    := ft_malloc
-CFLAGS  := -D SHOW_DUMP=1 -Wall -Werror -Wextra
+CFLAGS  := -D SHOW_DUMP=1 -D SHOW_MALLOC=1 -D SHOW_MALLOC_INFO=1 -Wall -Werror -Wextra
+DEBBUGFLAGS := -D SHOW_DUMP=1 -D SHOW_MALLOC=1 -D SHOW_MALLOC_INFO=1
+CALLOCFLAGS := -D CALLOC=1
 
 LIBFT   := ./libft
 INCLUDE_DIR := ./include
@@ -40,6 +42,16 @@ $(OBJ_DIR)/%.o: %.c Makefile
 
 $(NAME): libft $(OBJS) Makefile
 	@$(CC) $(CFLAGS) $(OBJS) $(LIBS) $(HEADERS) -o $(NAME)
+
+debbug: fclean $(NAME)
+	@mkdir -p $(dir $@)
+	@$(CC) $(CFLAGS) $(DEBBUGFLAGS) -o $@ -c $< $(HEADERS) && printf "Compiling: $(notdir $<)\n"
+	@$(CC) $(CFLAGS) $(DEBBUGFLAGS) $(OBJS) $(LIBS) $(HEADERS) -o $(NAME)
+
+calloc: fclean
+	@mkdir -p $(dir $@)
+	@$(CC) $(CFLAGS) $(CALLOCFLAGS) -o $@ -c $< $(HEADERS) && printf "Compiling: $(notdir $<)\n"
+	@$(CC) $(CFLAGS) $(CALLOCFLAGS)  $(OBJS) $(LIBS) $(HEADERS) -o $(NAME)
 
 clean:
 	@rm -rf $(OBJS)
