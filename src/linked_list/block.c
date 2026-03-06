@@ -3,14 +3,16 @@
 // (void *)((char *)node->mem + ((uintptr_t)node % 16 == 0)? (uintptr_t)node % 16 : 16);
 t_block	*create_block_node(size_t size, t_header *header_mem)
 {
-
 //	printf("--- size t_block %lu uint64_t size %lu\n", sizeof(t_block), sizeof(uint64_t));
-	t_block *node = (t_block *)((uintptr_t)header_mem + (uintptr_t)(sizeof(t_block) + header_mem->current_size));
+	t_block *node = (t_block *)((uintptr_t)header_mem + header_mem->current_size);
 	uint64_t padding = 16 - (size % 16);
 	//uint8_t	padding = (uintptr_t)((((uintptr_t)node + 15) & ~(uintptr_t)0xF) - (uintptr_t)node);
 	//printf("size %lu - padding %lu - total_size %lu - x16 %lu\n", size, padding, size + padding, (size + padding) % 16);
 //	printf("node is this aligned? %p\n", node);
-	node = (t_block *)((((uintptr_t)node + 15) & ~(uintptr_t)0xF));
+
+	//node = (t_block *)((((uintptr_t)node + 15) & ~(uintptr_t)0xF));
+
+
 //	printf("node is this aligned? %p\n", node);
 
 
@@ -38,9 +40,9 @@ t_block	*create_block_from_ptr(size_t size, void *ptr)
 	node->mem = (void *)((char *)node + (size_t)sizeof(t_block) );// + padding);
 	//node->mem = (void *)(((uintptr_t)node->mem + 15) & ~(uintptr_t)0xF);
 	node->size = size;// + padding;
-	printf("create block from ptr\n"); // debug
+	printf("create block from ptr - size %lu\n", size); // debug
 	printf("node mem size  %lu\n", node->mem_size); // debug
-	node->mem_size = size - sizeof(t_block); //(size - sizeof(t_block));// + padding;
+	node->mem_size = size; //(size - sizeof(t_block));// + padding;
 	printf("node mem size  %lu\n", node->mem_size); // debug
 	assert(node->mem_size < 100000); // debug
 	node->state = FREE;
@@ -57,6 +59,7 @@ void	*asign_block(size_t size, t_block *block, t_header *header)
 		return NULL;
 	//block->size = size + sizeof(t_block);
 	block->state = ASIGNED;
+	block->mem_size = block->size - sizeof(t_block);
 	header->current_size += block->size;
 	current_allocs_size(ASIGNED, block->size);//size + sizeof(t_block));
 	return block->mem;

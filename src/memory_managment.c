@@ -26,13 +26,16 @@ void	*get_mmap_region(size_t header_total_size)
 		BLOCK1(state: FREE, size 200)->BLOCK2(state: ASIG, size 100)
 	merge 2 or 3 blocks in only 1 block
 */
-void	defragment_header(t_header *header, t_block *block)
+
+//t_header *header, /borrar
+void	defragment_header(t_block *block)
 {
 	if (block->prev && block->prev->state == FREE)
 	{
 		block->prev->size += block->size;
+		printf("defragment blocks %lu  -  %lu\n", block->prev->size, block->size);
 		//block->prev->mem_size += block->mem_size;
-		header->current_size -= sizeof(t_block);
+		//header->current_size -= sizeof(t_block);
 
 		block->prev->next = block->next;
 		if (block->next)
@@ -42,7 +45,7 @@ void	defragment_header(t_header *header, t_block *block)
 	if (block->next && block->next->state == FREE)
 	{
 		block->size += block->next->size;
-		header->current_size -= sizeof(t_block);
+		//header->current_size -= sizeof(t_block);
 
 		if (block->next->next)
 			block->next->next->prev = block;
@@ -62,7 +65,7 @@ void	defragment_header(t_header *header, t_block *block)
 void	split_block(t_block *block, size_t size)
 {
 	// Check if is enough space for the alignment of the memory
-	if (block->size - (size + sizeof(t_block)) < 16) {
+	if (block->size - (size + sizeof(t_block)) < 64) {
 		printf("pero estoooooooooooooooooooooooo queeeeee essssssssssssssssssssssss\n");
 		return ;
 	}

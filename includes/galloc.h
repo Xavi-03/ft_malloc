@@ -97,7 +97,7 @@ void		set_main_header(void *ptr);
 
 // src/memoty_managment.c
 void	*get_mmap_region(size_t header_total_size);
-void	defragment_header(t_header *header, t_block *block);
+void	defragment_header(t_block *block);
 void	split_block(t_block *block, size_t size);
 
 // src/allocs_limits.c

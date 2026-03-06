@@ -81,31 +81,54 @@ void process_mem(void) {
 	ptr = galloc(1);
 	gfree(ptr);
 	char *abc= galloc(100);
-	//abc[127] = 42;
-	//abc = galloc(33);
-	abc[0] = 43;
+	abc[127] = 42;
+	abc = galloc(33);
+	//abc[0] = 43;
 	printf("acabado\n");
+	char *xd = galloc(126);
+	gfree(abc);
+	ptr = galloc(100);
+	abc = galloc(20);
+	gfree(ptr);
+	gfree(abc);
+	gfree(xd);
 	show_mallocs();
 	//show_alloc_mem_ex();
 }
 
 void ft_memory() {
-	for (int i = 0; i < 3; i++) {
-		galloc(1);
-	}
-	show_mallocs();
-	void *ptr = galloc(1);
-	gfree(ptr);
-	gfree(ptr);
-	show_mallocs();
+	char *ptr1 = galloc(1);
+	char *ptr2 = galloc(1);
+
+	char *ptr3 = galloc(1);
+	ptr2[0] = 42;
+	char *ptr4 = galloc(1);
+	char *ptr5 = galloc(1);
+	char *ptr6 = galloc(1);
+	char *ptr7 = galloc(1);
+	char *ptr8 = galloc(1);
+	gfree(ptr1);
+
+	gfree(ptr3);
+	gfree(ptr4);
+	gfree(ptr5);
+
+	gfree(ptr7);
+	gfree(ptr8);
+
+	show_alloc_mem_ex();
 }
 
 int main(void)
 {
 	//char *ptr;
     //print_memory_limits();
-    process_mem();
-    //ft_memory();
+
+
+    //process_mem();
+
+
+    ft_memory();
     //gfree(ptr);
     return 0;
 }

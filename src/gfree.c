@@ -22,17 +22,17 @@ void	gfree(void *ptr)
 	block->mem_size = 0; // debug
 	//
 	block->state = FREE;
-	defragment_header(header, block);
+	defragment_header(block);
 	printf("block free mem size %lu\n", block->mem_size); // debug
 	assert(block->mem_size < 100000); // debug
 	if (get_last_block(header->blocks) == header->blocks \
 		&& header->blocks->state == FREE)
 		remove_header(header);
-	else if (block->next) {
+	else if (!block->next && block->prev) {
 		header->current_size -= block->size;
-		current_allocs_size(FREE, block->size - sizeof(t_block));
-		if (block->prev)
-			block->prev->next = NULL;
+		current_allocs_size(FREE, block->size);
+		printf("freeeeee not next ----------------------------\n");
+		block->prev->next = NULL;
 	}
 	//block->mem_size = 0; // debug
 	debug_mode(block, "FREE", 0);

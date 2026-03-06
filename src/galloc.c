@@ -11,6 +11,7 @@ void	clear_memory(t_block *block) {
 
 void *galloc(size_t size) {
 
+	printf("gallllooc\n");
 	if (size == 0)
 		return NULL;
 	pthread_mutex_lock(&(g_main_mutex));
@@ -26,7 +27,6 @@ void *galloc(size_t size) {
 		pthread_mutex_unlock(&(g_main_mutex));
 		return NULL;
 	}
-	printf("\t## START MALLOC\n");
 	debug_mode(block, "MALLOC", size);
 	//printf("current block size: %lu size needed: %lu\n", block->size - sizeof(t_block), size);
 	if (block->size - sizeof(t_block) > size + 15)
@@ -38,9 +38,7 @@ void *galloc(size_t size) {
 
 	//if (CALLOC)
 	//clear_memory(block);
-	printf("node mem size  %lu\n", block->mem_size);
 	assert(block->mem_size < 100000);
-	printf("\t## END MALLOC\n");
 	debug_mode(block, "MALLOC", size);
 	pthread_mutex_unlock(&(g_main_mutex));
 	if (block->prev) {
