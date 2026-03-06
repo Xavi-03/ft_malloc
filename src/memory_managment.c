@@ -48,6 +48,7 @@ void	defragment_header(t_header *header, t_block *block)
 			block->next->next->prev = block;
 		block->next = block->next->next;
 	}
+	block->mem = (t_block *)((uintptr_t)block + sizeof(t_block));
 }
 
 /*

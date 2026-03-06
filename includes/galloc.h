@@ -12,6 +12,7 @@
 
 # include <stdio.h> /// debug
 # include <stdlib.h>
+# include <assert.h> // debug
 
 // Size limits of blocks
 # define N 128

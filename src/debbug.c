@@ -67,7 +67,13 @@ void	show_alloc_mem_ex(void)
 		while (block)
 		{
 			printf("\tblock:\t\t%p\n\tmem:\t\t%p\n\tsize:\t\t%lu\n\tmem_size:\t%lu\n\tstate:\t\t%s\n", block, block->mem, block->size, block->mem_size, block_state(block->state));
-
+			if (block->prev) {
+				if ((uint64_t)block->prev->mem + block->prev->mem_size > (uint64_t)block)
+					printf("Sloping detected %lx - %lx\n", (uint64_t)block->prev->mem + block->prev->mem_size, (uint64_t)block);
+				else
+					printf("Sloping ok %lx - %lx\n", (uint64_t)block->prev->mem + block->prev->mem_size, (uint64_t)block);
+			} else
+				printf("not prev\n");
 
 			show_dump(block);
 			printf("\n");

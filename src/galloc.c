@@ -38,8 +38,21 @@ void *galloc(size_t size) {
 
 	//if (CALLOC)
 	//clear_memory(block);
+	printf("node mem size  %lu\n", block->mem_size);
+	assert(block->mem_size < 100000);
 	printf("\t## END MALLOC\n");
 	debug_mode(block, "MALLOC", size);
 	pthread_mutex_unlock(&(g_main_mutex));
+	if (block->prev) {
+		printf("Check slopaing %lx - %lx\n", (uint64_t)block->prev->mem + block->prev->mem_size, (uint64_t)block);
+		if((uint64_t)block->prev->mem + block->prev->mem_size > (uint64_t)block) {
+			uintptr_t *mem = (uintptr_t  *)block;
+			printf("sloooopiiiiibng -------- detected   ----------------\n");
+			printf("%02lx , %02lx , %02lx, %02lx\n", (uint64_t)mem[1], (uint64_t)mem[2], (uint64_t)mem[3], (uint64_t)mem[1]);
+			//show_dump(block->prev);
+			printf("End sloping\n\n");
+		}
+	}
+	assert(block->mem_size < 200);
 	return ptr;
 }

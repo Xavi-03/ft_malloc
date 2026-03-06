@@ -20,6 +20,9 @@ t_block	*create_block_node(size_t size, t_header *header_mem)
 
 	//node->mem = (void *)(((uintptr_t)node->mem + 15) & ~(uintptr_t)0xF);
 	node->mem_size = size + padding;
+	printf("create block from header\n"); // debug
+	printf("node mem size  %lu\n", node->mem_size); // debug
+	assert(node->mem_size < 100000); // debug
 	node->size = size + (size_t)sizeof(t_block) + padding;// + padding;
 	node->state = FREE;
 	node->next = NULL;
@@ -35,7 +38,11 @@ t_block	*create_block_from_ptr(size_t size, void *ptr)
 	node->mem = (void *)((char *)node + (size_t)sizeof(t_block) );// + padding);
 	//node->mem = (void *)(((uintptr_t)node->mem + 15) & ~(uintptr_t)0xF);
 	node->size = size;// + padding;
+	printf("create block from ptr\n"); // debug
+	printf("node mem size  %lu\n", node->mem_size); // debug
 	node->mem_size = size - sizeof(t_block); //(size - sizeof(t_block));// + padding;
+	printf("node mem size  %lu\n", node->mem_size); // debug
+	assert(node->mem_size < 100000); // debug
 	node->state = FREE;
 	node->next = NULL;
 	node->prev = NULL;

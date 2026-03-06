@@ -19,16 +19,22 @@ void	gfree(void *ptr)
 		pthread_mutex_unlock(&(g_main_mutex));
 		return ;
 	}
-
-	current_allocs_size(FREE, block->size - sizeof(t_block));
+	block->mem_size = 0; // debug
+	//
 	block->state = FREE;
-	header->current_size -= block->size - sizeof(t_block);
 	defragment_header(header, block);
-
+	printf("block free mem size %lu\n", block->mem_size); // debug
+	assert(block->mem_size < 100000); // debug
 	if (get_last_block(header->blocks) == header->blocks \
 		&& header->blocks->state == FREE)
 		remove_header(header);
-
+	else if (block->next) {
+		header->current_size -= block->size;
+		current_allocs_size(FREE, block->size - sizeof(t_block));
+		if (block->prev)
+			block->prev->next = NULL;
+	}
+	//block->mem_size = 0; // debug
 	debug_mode(block, "FREE", 0);
 	pthread_mutex_unlock(&(g_main_mutex));
 }
