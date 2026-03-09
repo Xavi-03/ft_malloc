@@ -1,6 +1,6 @@
 CC      := clang
-NAME    := ft_malloc
-CFLAGS  := -g# -Wall -Werror -Wextra
+NAME    := ft_malloc.so
+CFLAGS  := -Wall -Werror -Wextra
 DEBBUGFLAGS := -D SHOW_DUMP=1 -D SHOW_MALLOC=1 -D SHOW_MALLOC_INFO=1
 CALLOCFLAGS := -D CALLOC=1
 
@@ -16,16 +16,15 @@ LIBS    := -L $(LIBFT_LIB)/ -lft
 
 
 SRCS := src/debbug.c \
-		src/galloc.c \
-		src/gfree.c \
+		src/malloc.c \
+		src/free.c \
 		src/global_managment.c \
 		src/memory_managment.c \
 		src/realloc.c \
 		src/utils.c \
 		src/linked_list/block.c \
 		src/linked_list/header.c \
-		src/linked_list/linked_list_utils.c \
-		src/main.c
+		src/linked_list/linked_list_utils.c
 
 OBJ_DIR := obj
 OBJS := $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
@@ -41,8 +40,8 @@ $(OBJ_DIR)/%.o: %.c Makefile
 	@$(CC) $(CFLAGS) -o $@ -c $< $(HEADERS) && printf "Compiling: $(notdir $<)\n"
 
 $(NAME): libft $(OBJS) Makefile
-	@$(CC) $(CFLAGS) $(OBJS) $(LIBS) $(HEADERS) -o $(NAME)
-
+	@$(CC)  -shared -fPIC  $(CFLAGS) $(OBJS) $(LIBS) $(HEADERS) -o $(NAME) -ldl
+#-shared -fPIC   -ldl
 debbug: fclean $(NAME)
 	@mkdir -p $(dir $@)
 	@$(CC) $(CFLAGS) $(DEBBUGFLAGS) -o $@ -c $< $(HEADERS) && printf "Compiling: $(notdir $<)\n"

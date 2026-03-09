@@ -1,41 +1,41 @@
 #include "../includes/galloc.h"
 
-void	gfree(void *ptr)
+void	free(void *ptr)
 {
 	pthread_mutex_lock(&(g_main_mutex));
 	if (!ptr)
 	{
+		pthread_mutex_unlock(&(g_main_mutex));
+		return ;
+	}
+	ft_printf("%p\n", ptr);
+	t_block	*block = (t_block *)((char *)ptr - sizeof(t_block));
+	t_header *header = find_header_from_block(block);
+	if (!header)
+	{
+		debug_mode(block, "FREE", 0);
+		show_mallocs();
 		write(1, "free(): invalid pointer\n", 24);
 		pthread_mutex_unlock(&(g_main_mutex));
 		return ;
 	}
+	block->state = FREE;
 
-	t_block	*block = (t_block *)((char *)ptr - sizeof(t_block));
+	defragment_header(&block);
 
-	t_header *header = find_header_from_block(block);
-	if (!header)
-	{
-		printf("free(): invalid pointer\n");
+	if (get_last_block(header->blocks) == block \
+		&& header->blocks->state == FREE) {
+		remove_header(header);
 		pthread_mutex_unlock(&(g_main_mutex));
 		return ;
 	}
-	block->mem_size = 0; // debug
-	//
-	block->state = FREE;
-	defragment_header(block);
-	printf("block free mem size %lu\n", block->mem_size); // debug
-	assert(block->mem_size < 100000); // debug
-	if (get_last_block(header->blocks) == header->blocks \
-		&& header->blocks->state == FREE)
-		remove_header(header);
 	else if (!block->next && block->prev) {
 		header->current_size -= block->size;
 		current_allocs_size(FREE, block->size);
-		printf("freeeeee not next ----------------------------\n");
 		block->prev->next = NULL;
 	}
-	//block->mem_size = 0; // debug
 	debug_mode(block, "FREE", 0);
+	block->mem_size = block->size - sizeof(t_block);
 	pthread_mutex_unlock(&(g_main_mutex));
 }
 

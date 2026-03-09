@@ -38,18 +38,18 @@ void	show_mallocs(void)
 	t_header	*header = get_main_header();
 	t_block		*block = NULL;
 
-	printf("Current memory use: %lu\n", current_allocs_size(GET_MEMORY_SIZE, 0));
+	ft_printf("Current memory use: %u\n", current_allocs_size(GET_MEMORY_SIZE, 0));
 	while (header)
 	{
-		printf("\nheader: %p\n\tsize: %lu\n\tcurrent: %lu\n\ttype: %s\n\n", header, header->size, header->current_size, header_type(header->type));
+		ft_printf("\nheader: %p\n\tsize: %u\n\tcurrent: %u\n\ttype: %s\n\n", header, header->size, header->current_size, header_type(header->type));
 		block = header->blocks;
 		while (block)
 		{
-			printf("\tblock:\t\t%p\n\tmem:\t\t%p\n\tsize:\t\t%lu\n\tmem_size:\t%lu\n\tstate:\t\t%s\n", block, block->mem, block->size, block->mem_size, block_state(block->state));
+			ft_printf("\tblock:\t\t%p\n\tmem:\t\t%p\n\tsize:\t\t%u\n\tmem_size:\t%u\n\tstate:\t\t%s\n", block, block->mem, block->size, block->mem_size, block_state(block->state));
 			block = block->next;
-			printf("\n\n");
+			ft_printf("\n\n");
 		}
-		printf("\n\n");
+		ft_printf("\n\n");
 		header = header->next;
 	}
 }
@@ -59,59 +59,81 @@ void	show_alloc_mem_ex(void)
 	t_header	*header = get_main_header();
 	t_block		*block = NULL;
 
-	printf("Current memory use: %lu\n", current_allocs_size(GET_MEMORY_SIZE, 0));
+	ft_printf("Current memory use: %u\n", current_allocs_size(GET_MEMORY_SIZE, 0));
 	while (header)
 	{
-		printf("\nheader: %p\n\tsize: %lu\n\tcurrent: %lu\n\ttype: %i\n\n", header, header->size, header->current_size, header->type);
+		ft_printf("\nheader: %p\n\tsize: %u\n\tcurrent: %u\n\ttype: %i\n\n", \
+			header, header->size, header->current_size, header->type);
 		block = header->blocks;
 		while (block)
 		{
-			printf("\tblock:\t\t%p\n\tmem:\t\t%p\n\tsize:\t\t%lu\n\tmem_size:\t%lu\n\tstate:\t\t%s\n", block, block->mem, block->size, block->mem_size, block_state(block->state));
-			if (block->prev) {
-				if ((uint64_t)block->prev->mem + block->prev->mem_size > (uint64_t)block)
-					printf("Sloping detected %lx - %lx\n", (uint64_t)block->prev->mem + block->prev->mem_size, (uint64_t)block);
-				else
-					printf("Sloping ok %lx - %lx\n", (uint64_t)block->prev->mem + block->prev->mem_size, (uint64_t)block);
-			} else
-				printf("not prev\n");
-
-			show_dump(block);
-			printf("\n");
+			ft_printf("\tblock:\t\t%p\n\tmem:\t\t%p\n\tsize:\t\t%u\n\tmem_size:" \
+				"\t%u\n\tstate:\t\t%s\n", block, block->mem, block->size, \
+				block->mem_size, block_state(block->state));
+			show_dump_full_mem(block);
 			block = block->next;
 		}
-		printf("\n\n");
+		ft_printf("\n\n");
 		header = header->next;
 	}
+}
+
+static void	print_mem(uint8_t data) {
+	if (data < 16)
+		ft_printf("0%x", data);
+	else
+		ft_printf("%x", data);
 }
 
 void	show_dump(t_block *block) {
 	uint8_t		*mem = NULL;
 
 	mem = block->mem;
-	printf("\n\t");
+	ft_printf("\n\t");
 	for (uint64_t i = 0; i < block->mem_size; i++) {
-		printf("%02x", mem[i]);
+		print_mem(mem[i]);
 
 		if (i + 1 != block->mem_size && (i + 1) % 64 == 0)
-			printf("\n\n\t");
+			ft_printf("\n\n\t");
 		else if (i + 1 != block->mem_size && (i + 1) % 16 == 0)
-			printf("\n\t");
+			ft_printf("\n\t");
 		else if (i + 1 != block->mem_size && (i + 1) % 8 == 0)
-			printf("  ");
+			ft_printf("  ");
 		else if (i + 1 == block->mem_size)
-			printf("\n\n\n");
+			ft_printf("\n\n\n");
 		else
-			printf(" ");
+			ft_printf(" ");
+	}
+}
+
+void	show_dump_full_mem(t_block *block) {
+	uint8_t		*mem = NULL;
+
+	mem = (void *)block;
+	ft_printf("\n\t");
+	for (uint64_t i = 0; i < block->size; i++) {
+		print_mem(mem[i]);
+
+		if (i + 1 != block->size && (i + 1) % 64 == 0)
+			ft_printf("\n\n\t");
+		else if (i + 1 != block->size && (i + 1) % 16 == 0)
+			ft_printf("\n\t");
+		else if (i + 1 != block->size && (i + 1) % 8 == 0)
+			ft_printf("  ");
+		else if (i + 1 == block->size)
+			ft_printf("\n\n\n");
+		else
+			ft_printf(" ");
 	}
 }
 
 void debug_mode(t_block *block, char *type, size_t size) {
 	if (SHOW_MALLOC)
-		printf("\t##  %s  ##  block size %lu  ##  mem size %lu  ##  param size %lu  ##\n\n", type, block->size, block->mem_size, size);
+		ft_printf("\t##  %s  ##  block size %u  ##  mem size %u  ##  param size %u  ##\n\n", type, block->size, block->mem_size, size);
 	if (SHOW_MALLOC_INFO)
-		printf("\tblock:\t\t%p\n\tmem:\t\t%p\n\tsize:\t\t%lu\n\tmem_size:\t%lu\n", block, block->mem, block->size, block->mem_size);
+		ft_printf("\tblock:\t\t%p\n\tmem:\t\t%p\n\tsize:\t\t%u\n\tmem_size:\t%u\n", block, block->mem, block->size, block->mem_size);
 	if (SHOW_DUMP) {
 		show_dump(block);
-		printf("\n");
+		ft_printf("\n");
 	}
 }

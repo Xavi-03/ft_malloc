@@ -27,16 +27,12 @@ void	*get_mmap_region(size_t header_total_size)
 	merge 2 or 3 blocks in only 1 block
 */
 
-//t_header *header, /borrar
-void	defragment_header(t_block *block)
+void	defragment_header(t_block **block_src)
 {
+	t_block	*block = *block_src;
 	if (block->prev && block->prev->state == FREE)
 	{
 		block->prev->size += block->size;
-		printf("defragment blocks %lu  -  %lu\n", block->prev->size, block->size);
-		//block->prev->mem_size += block->mem_size;
-		//header->current_size -= sizeof(t_block);
-
 		block->prev->next = block->next;
 		if (block->next)
 			block->next->prev = block->prev;
@@ -45,13 +41,12 @@ void	defragment_header(t_block *block)
 	if (block->next && block->next->state == FREE)
 	{
 		block->size += block->next->size;
-		//header->current_size -= sizeof(t_block);
-
 		if (block->next->next)
 			block->next->next->prev = block;
 		block->next = block->next->next;
 	}
 	block->mem = (t_block *)((uintptr_t)block + sizeof(t_block));
+	*block_src = block;
 }
 
 /*
@@ -65,11 +60,8 @@ void	defragment_header(t_block *block)
 void	split_block(t_block *block, size_t size)
 {
 	// Check if is enough space for the alignment of the memory
-	if (block->size - (size + sizeof(t_block)) < 64) {
-		printf("pero estoooooooooooooooooooooooo queeeeee essssssssssssssssssssssss\n");
+	if (block->size - (size + sizeof(t_block)) < 64)
 		return ;
-	}
-	printf("original block size %lu mem %lu\n", block->size, block->mem_size);
 	size_t padding = 16 - (size % 16);
 	block->mem_size = size + padding;
 	// create_block_from_ptr arguments:
@@ -77,10 +69,9 @@ void	split_block(t_block *block, size_t size)
 	// 		-2: move the pointer out of his own memory
 	t_block	*new_block = create_block_from_ptr(block->size - (block->mem_size + sizeof(t_block)), \
 		(t_block*)((uintptr_t)block + sizeof(t_block) + size));
-	//new_block->size = block->size - size + sizeof(t_block); // substract the size from first block
 	block->size -= new_block->size;
-	printf("original block size %lu mem %lu\n", block->size, block->mem_size);
-	printf("new block size %lu mem %lu\n", new_block->size, new_block->mem_size);
+
+
 	// connect the new block with the others
 	if (block->next)
 	{

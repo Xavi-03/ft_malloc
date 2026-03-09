@@ -7,7 +7,7 @@
 
 #include <stdio.h>
 #include <sys/resource.h>
-
+/*
 void print_memory_limits(void)
 {
     struct rlimit lim;
@@ -66,7 +66,7 @@ void *memory() {
 }
 
 void process_mem(void) {
-
+*/
 	//pthread_t ida;
 	/*for (int i = 0; i < 3; i++)
 		pthread_create(&ida, NULL, memory, NULL);
@@ -75,7 +75,7 @@ void process_mem(void) {
 		galloc(1);
 		}
 		sleep(3);*/
-	galloc(1);
+/*	galloc(1);
 	char *ptr = galloc (1);
 	gfree(ptr);
 	ptr = galloc(1);
@@ -84,7 +84,6 @@ void process_mem(void) {
 	abc[127] = 42;
 	abc = galloc(33);
 	//abc[0] = 43;
-	printf("acabado\n");
 	char *xd = galloc(126);
 	gfree(abc);
 	ptr = galloc(100);
@@ -97,27 +96,17 @@ void process_mem(void) {
 }
 
 void ft_memory() {
-	char *ptr1 = galloc(1);
-	char *ptr2 = galloc(1);
-
-	char *ptr3 = galloc(1);
-	ptr2[0] = 42;
-	char *ptr4 = galloc(1);
-	char *ptr5 = galloc(1);
-	char *ptr6 = galloc(1);
-	char *ptr7 = galloc(1);
-	char *ptr8 = galloc(1);
-	gfree(ptr1);
-
-	gfree(ptr3);
-	gfree(ptr4);
-	gfree(ptr5);
-
-	gfree(ptr7);
-	gfree(ptr8);
-
+	char *abc = galloc(16);
+	abc[0] = 41;
+	abc[1] = 42;
+	abc[2] = 43;
+	galloc(42);
 	show_alloc_mem_ex();
-}
+	abc = regalloc(abc, 112);
+	galloc(17);
+	show_alloc_mem_ex();
+
+}*/
 
 int main(void)
 {
@@ -126,9 +115,18 @@ int main(void)
 
 
     //process_mem();
+    void *ptr;
+    printf("%p\n", ptr);
+    free(ptr);
+    printf("%p\n", ptr);
+    ptr = malloc(1);
+    printf("%p\n", ptr);
+    free(ptr);
+    printf("%p\n", ptr);
+    ptr = (uintptr_t *)ptr + 1024;
+    free(ptr);
+    //ft_memory();
 
-
-    ft_memory();
     //gfree(ptr);
     return 0;
 }

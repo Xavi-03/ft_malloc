@@ -25,15 +25,14 @@ unsigned long	ft_counter_unsigned(unsigned long int_value, unsigned int base)
 	return (counter);
 }
 
-char	*ft_itoa_base_unsigned(unsigned long nbr, char *base_char)
+char	*ft_itoa_base_unsigned(unsigned long nbr, char *base_char, char *str)
 {
 	int					size;
 	unsigned int		base_size;
-	char				*str;
 
 	base_size = ft_strlen_printf(base_char);
 	size = ft_counter_unsigned(nbr, base_size);
-	str = malloc((size + 1) * sizeof(char));
+
 	str[size] = '\0';
 	size--;
 	while (nbr >= base_size)

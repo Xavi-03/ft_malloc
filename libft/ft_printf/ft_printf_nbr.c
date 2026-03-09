@@ -37,13 +37,13 @@ int	ft_nbr_unsigned(va_list args)
 {
 	int		counter;
 	char	*unsigned_value;
+	char	str[21];
 
 	counter = 0;
 	unsigned_value = ft_itoa_base_unsigned
-		(va_arg(args, unsigned int), "0123456789");
+		(va_arg(args, unsigned long), "0123456789", str);
 	if (!unsigned_value)
 		return (0);
 	counter = ft_putstr(unsigned_value);
-	free(unsigned_value);
 	return (counter);
 }

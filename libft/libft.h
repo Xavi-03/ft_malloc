@@ -84,7 +84,7 @@ int				ft_putchar(char c);
 int				ft_putstr(char *str);
 void			ft_putnbr(int int_value);
 char			*ft_itoa_base(int nbr, char *base_char);
-char			*ft_itoa_base_unsigned(unsigned long nbr, char *base_char);
+char			*ft_itoa_base_unsigned(unsigned long nbr, char *base_char, char *str);
 int				ft_strlen_printf(const char *s);
 
 #endif
