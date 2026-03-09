@@ -30,31 +30,37 @@ void	*realloc(void *ptr, size_t size)
 	if (!ptr)
 		return NULL;
 	pthread_mutex_lock(&(g_main_mutex));
+	ft_printf("lock mutex realloc\n");
 	// move back the ptr to the block(explained above)
 	block = (t_block *)((char *)block - sizeof(t_block));
 	if (!block)
 	{
+		ft_printf("unlcok mutex\n");
 		pthread_mutex_unlock(&(g_main_mutex));
 		return NULL;
 	}
 	header = find_header_from_block(block);
 	if (!header)
 	{
+		ft_printf("unlcok mutex\n");
 		pthread_mutex_unlock(&(g_main_mutex));
 		return NULL;
 	}
 	// check if the new size is larger or smaller than then previous size
 	if (!block->next) {
 		adjust_alloc(header, block, size);
+		ft_printf("unlcok mutex\n");
 		pthread_mutex_unlock(&(g_main_mutex));
 		return ptr;
 	}
-
+	ft_printf("unlcok mutex\n");
+	pthread_mutex_unlock(&(g_main_mutex));
 	new_ptr = malloc(size);
 	new_ptr = ft_memcpy(new_ptr, ptr, block->size - sizeof(t_block));
 	free(ptr);
 
 	debug_mode(block, "REALLOC", 0);
-	pthread_mutex_unlock(&(g_main_mutex));
+
+//	pthread_mutex_unlock(&(g_main_mutex));
 	return new_ptr;
 }

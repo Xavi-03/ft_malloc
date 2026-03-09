@@ -1,6 +1,6 @@
 CC      := clang
 NAME    := ft_malloc.so
-CFLAGS  := -Wall -Werror -Wextra
+CFLAGS  := -O0 -g -D SHOW_MALLOC=1 -D SHOW_MALLOC_INFO=1 -Wall -Werror -Wextra
 DEBBUGFLAGS := -D SHOW_DUMP=1 -D SHOW_MALLOC=1 -D SHOW_MALLOC_INFO=1
 CALLOCFLAGS := -D CALLOC=1
 
@@ -37,7 +37,7 @@ libft: Makefile
 
 $(OBJ_DIR)/%.o: %.c Makefile
 	@mkdir -p $(dir $@)
-	@$(CC) $(CFLAGS) -o $@ -c $< $(HEADERS) && printf "Compiling: $(notdir $<)\n"
+	@$(CC) $(CFLAGS) -fPIC -o $@ -c $< $(HEADERS) && printf "Compiling: $(notdir $<)\n"
 
 $(NAME): libft $(OBJS) Makefile
 	@$(CC)  -shared -fPIC  $(CFLAGS) $(OBJS) $(LIBS) $(HEADERS) -o $(NAME) -ldl

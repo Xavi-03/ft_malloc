@@ -8,13 +8,16 @@
 void	*get_mmap_region(size_t header_total_size)
 {
 	t_header *header = get_main_header();
+	ft_printf("get mmap\n");
 	while (header)
 	{
-		if (header->type != LARGE)
+		if (header->type != LARGE) {
 			return mmap(header, header_total_size, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANON, -1, 0);
+			ft_printf("get mmap sale\n");
+		}
 		header = header->next;
 	}
-
+	ft_printf("get mmap sale2\n");
 	return mmap(NULL, header_total_size, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANON, -1, 0);
 }
 
@@ -68,7 +71,7 @@ void	split_block(t_block *block, size_t size)
 	//		-1: subtract the memory from the first block for the second block
 	// 		-2: move the pointer out of his own memory
 	t_block	*new_block = create_block_from_ptr(block->size - (block->mem_size + sizeof(t_block)), \
-		(t_block*)((uintptr_t)block + sizeof(t_block) + size));
+		(t_block*)((uintptr_t)block + sizeof(t_block) + block->mem_size));
 	block->size -= new_block->size;
 
 

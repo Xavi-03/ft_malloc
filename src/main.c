@@ -113,9 +113,9 @@ int main(void)
 	//char *ptr;
     //print_memory_limits();
 
-
+    malloc(47);
     //process_mem();
-    void *ptr;
+    /*void *ptr;
     printf("%p\n", ptr);
     free(ptr);
     printf("%p\n", ptr);
@@ -124,7 +124,7 @@ int main(void)
     free(ptr);
     printf("%p\n", ptr);
     ptr = (uintptr_t *)ptr + 1024;
-    free(ptr);
+    free(ptr);*/
     //ft_memory();
 
     //gfree(ptr);

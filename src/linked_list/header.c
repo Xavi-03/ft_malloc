@@ -30,17 +30,20 @@ int	check_header_blocks_size(size_t size, t_header *header)
 	t_block	*block = header->blocks;
 	size_t blocks_size = 0; // counter of total size of blocks
 	size_t total_size = 0;
-
+	ft_printf("get header bl si \n");
 	while (block)
 	{
 		if (block->state == FREE \
-			&& block->size > size)
+			&& block->size >= size + sizeof(t_block)) {
+			ft_printf("get header  bl si sale\n");
 			return 1;
+		}
 		blocks_size += block->size;
 		block = block->next;
 	}
+	ft_printf("get header bl si sale 2 \n");
 	if (header->size - header->current_size > blocks_size)
-		total_size = header->size - header->current_size - blocks_size;
+		total_size = header->size - header->current_size;
 	return (total_size > size + sizeof(t_block))? 1 : 0;
 }
 
@@ -48,6 +51,7 @@ int	check_header_blocks_size(size_t size, t_header *header)
 t_header	*get_header_node(size_t size)
 {
 	t_header *header = get_main_header();
+	ft_printf("get header \n");
 	while (header)
 	{
 		// type 3 need his exclusive header
@@ -58,11 +62,12 @@ t_header	*get_header_node(size_t size)
 		{
 
 			// need check here if is good spot incluiding padding
+			ft_printf("get header sale\n");
 			return header;
 		}
 		header = header->next;
 	}
-
+	ft_printf("get header sale 2\n");
 	if (!header)
 		header = create_header_node(size);
 
@@ -97,7 +102,7 @@ t_block	*add_block_to_header(size_t size, t_header *header)
 t_block	*get_block_from_header(size_t size, t_header *header)
 {
 	t_block	*block = header->blocks;
-
+	ft_printf("get block fr header \n");
 	while(block)//while(block && block->next)
 	{
 		// 15 is max padding needed in address for align memory
@@ -105,11 +110,12 @@ t_block	*get_block_from_header(size_t size, t_header *header)
 			&& block->size >= size + sizeof(t_block) \
 			&& header->size > header->current_size + size + sizeof(t_block) + 15)
 		{
+			ft_printf("get block fr header sale \n");
 			return block;
 		}
 		block = block->next;
 	}
-
+	ft_printf("get block fr header sale2 \n");
 	if (!block)
 		block = add_block_to_header(size, header); // tiene sentido?
 
