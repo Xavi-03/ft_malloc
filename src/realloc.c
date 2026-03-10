@@ -26,40 +26,34 @@ void	*realloc(void *ptr, size_t size)
 	t_block		*block = ptr;
 	t_header	*header = NULL;
 	void		*new_ptr = NULL;
-
 	if (!ptr)
 		return NULL;
 	pthread_mutex_lock(&(g_main_mutex));
-	ft_printf("lock mutex realloc\n");
 	// move back the ptr to the block(explained above)
 	block = (t_block *)((char *)block - sizeof(t_block));
 	if (!block)
 	{
-		ft_printf("unlcok mutex\n");
 		pthread_mutex_unlock(&(g_main_mutex));
 		return NULL;
 	}
 	header = find_header_from_block(block);
 	if (!header)
 	{
-		ft_printf("unlcok mutex\n");
 		pthread_mutex_unlock(&(g_main_mutex));
 		return NULL;
 	}
 	// check if the new size is larger or smaller than then previous size
-	if (!block->next) {
+	if (!block->next && get_type_header(block->size) == get_type_header(size) && get_type_header(size) != LARGE) {
 		adjust_alloc(header, block, size);
-		ft_printf("unlcok mutex\n");
 		pthread_mutex_unlock(&(g_main_mutex));
+		debug_mode(block, "REALLOC", 0);
 		return ptr;
 	}
-	ft_printf("unlcok mutex\n");
 	pthread_mutex_unlock(&(g_main_mutex));
 	new_ptr = malloc(size);
 	new_ptr = ft_memcpy(new_ptr, ptr, block->size - sizeof(t_block));
 	free(ptr);
-
-	debug_mode(block, "REALLOC", 0);
+	debug_mode((t_block *)((uintptr_t)new_ptr - sizeof(t_block)), "REALLOC", size);
 
 //	pthread_mutex_unlock(&(g_main_mutex));
 	return new_ptr;

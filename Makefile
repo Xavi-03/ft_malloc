@@ -1,6 +1,6 @@
 CC      := clang
 NAME    := ft_malloc.so
-CFLAGS  := -O0 -g -D SHOW_MALLOC=1 -D SHOW_MALLOC_INFO=1 -Wall -Werror -Wextra
+CFLAGS  := -Wall -Werror -Wextra
 DEBBUGFLAGS := -D SHOW_DUMP=1 -D SHOW_MALLOC=1 -D SHOW_MALLOC_INFO=1
 CALLOCFLAGS := -D CALLOC=1
 

@@ -8,16 +8,13 @@
 void	*get_mmap_region(size_t header_total_size)
 {
 	t_header *header = get_main_header();
-	ft_printf("get mmap\n");
 	while (header)
 	{
 		if (header->type != LARGE) {
 			return mmap(header, header_total_size, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANON, -1, 0);
-			ft_printf("get mmap sale\n");
 		}
 		header = header->next;
 	}
-	ft_printf("get mmap sale2\n");
 	return mmap(NULL, header_total_size, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANON, -1, 0);
 }
 

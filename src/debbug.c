@@ -33,7 +33,7 @@ static char *header_type(t_type type) {
 		return "ERROR";
 }
 
-void	show_mallocs(void)
+void	show_alloc_mem(void)
 {
 	t_header	*header = get_main_header();
 	t_block		*block = NULL;
@@ -49,7 +49,7 @@ void	show_mallocs(void)
 			block = block->next;
 			ft_printf("\n\n");
 		}
-		ft_printf("\n\n");
+		ft_printf("\n");
 		header = header->next;
 	}
 }
@@ -73,7 +73,7 @@ void	show_alloc_mem_ex(void)
 			show_dump_full_mem(block);
 			block = block->next;
 		}
-		ft_printf("\n\n");
+		ft_printf("\n");
 		header = header->next;
 	}
 }
@@ -129,11 +129,9 @@ void	show_dump_full_mem(t_block *block) {
 
 void debug_mode(t_block *block, char *type, size_t size) {
 	if (SHOW_MALLOC)
-		ft_printf("\t##  %s  ##  block size %u  ##  mem size %u  ##  param size %u  ##\n\n", type, block->size, block->mem_size, size);
+		ft_printf("\n\t##  %s  ##  block size %u  ##  mem size %u  ##  param size %u  ##\n", type, block->size, block->mem_size, size);
 	if (SHOW_MALLOC_INFO)
-		ft_printf("\tblock:\t\t%p\n\tmem:\t\t%p\n\tsize:\t\t%u\n\tmem_size:\t%u\n", block, block->mem, block->size, block->mem_size);
-	if (SHOW_DUMP) {
+		ft_printf("\n\tblock:\t\t%p\n\tmem:\t\t%p\n\tsize:\t\t%u\n\tmem_size:\t%u\n\n", block, block->mem, block->size, block->mem_size);
+	if (SHOW_DUMP)
 		show_dump(block);
-		ft_printf("\n");
-	}
 }

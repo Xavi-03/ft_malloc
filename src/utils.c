@@ -3,7 +3,6 @@
 
 t_type get_type_header(size_t size)
 {
-	//printf("type size: %lu\n", size);
 	if (size < N)
 		return TINY;
 	else if (size < M)

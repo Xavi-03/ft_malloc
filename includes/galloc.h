@@ -105,7 +105,7 @@ void	split_block(t_block *block, size_t size);
 
 
 // src/debbug
-void	show_mallocs(void);
+void	show_alloc_mem(void);
 size_t	current_allocs_size(int state, size_t size);
 void	show_alloc_mem_ex(void);
 void	show_dump(t_block *block);
