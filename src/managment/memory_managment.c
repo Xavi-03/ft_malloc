@@ -1,9 +1,11 @@
-#include "../includes/galloc.h"
+#include "../../includes/galloc.h"
 /*
 	MMAP:
 		return: In error mmap reeturn MAP_FAILED
 		the first argument of mmap will be NULL \
 		if is the first header or header->type == LARGER
+		if not wil be the first header for indicate to mmap
+		the region of memory that we need
 */
 void	*get_mmap_region(size_t header_total_size)
 {
@@ -11,7 +13,7 @@ void	*get_mmap_region(size_t header_total_size)
 	while (header)
 	{
 		if (header->type != LARGE) {
-			return mmap(header, header_total_size, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANON, -1, 0);
+			return mmap(NULL, header_total_size, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANON, -1, 0);
 		}
 		header = header->next;
 	}
@@ -59,7 +61,7 @@ void	defragment_header(t_block **block_src)
 */
 void	split_block(t_block *block, size_t size)
 {
-	// Check if is enough space for the alignment of the memory
+	// Check if is enough space for create a new complete block: struct 48 + mem 16 = 64
 	if (block->size - (size + sizeof(t_block)) < 64)
 		return ;
 	size_t padding = 16 - (size % 16);
@@ -70,8 +72,6 @@ void	split_block(t_block *block, size_t size)
 	t_block	*new_block = create_block_from_ptr(block->size - (block->mem_size + sizeof(t_block)), \
 		(t_block*)((uintptr_t)block + sizeof(t_block) + block->mem_size));
 	block->size -= new_block->size;
-
-
 	// connect the new block with the others
 	if (block->next)
 	{

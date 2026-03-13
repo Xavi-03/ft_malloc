@@ -8,17 +8,8 @@ t_block	*create_block_node(size_t size, t_header *header_mem)
 	padding = (padding == 16) ? 0 : padding;
 
 	t_block *node = (t_block *)((uintptr_t)header_mem + header_mem->current_size);
-	//uint64_t padding = 16 - (size % 16);
-	//uint8_t	padding = (uintptr_t)((((uintptr_t)node + 15) & ~(uintptr_t)0xF) - (uintptr_t)node);
-
-
-	//node = (t_block *)((((uintptr_t)node + 15) & ~(uintptr_t)0xF));
-
 	node->mem = (void *)((uintptr_t)node + (size_t)sizeof(t_block));
 
-
-
-	//node->mem = (void *)(((uintptr_t)node->mem + 15) & ~(uintptr_t)0xF);
 	node->mem_size = size + padding;
 	node->size = size + (size_t)sizeof(t_block) + padding;
 	assert((uintptr_t)node % 16 == 0 \
@@ -30,24 +21,18 @@ t_block	*create_block_node(size_t size, t_header *header_mem)
 	node->prev = NULL;
 	header->current_size += node->size;
 	current_allocs_size(ASIGNED, node->size);
+	ft_printf("-\n");
+	ft_printf("size %u header current %u node size %u node mem %u\n", size, header->current_size, node->size, node->mem_size);
+	ft_printf(".\n");
 	return node;
 }
 
 t_block	*create_block_from_ptr(size_t size, void *ptr)
 {
-	//current_allocs_size(ASIGNED, sizeof(t_block));
 	t_block	*node = (void *)(((uintptr_t)ptr + 15) & ~(uintptr_t)0xF);
-	node->mem = (void *)((char *)node + (size_t)sizeof(t_block) );// + padding);
-	//t_block *node = (t_block *)((uintptr_t)header_mem + header_mem->current_size);
-	//node->mem = (void *)(((uintptr_t)node->mem + 15) & ~(uintptr_t)0xF);
-	node->size = size;// + padding;
-
+	node->mem = (void *)((char *)node + (size_t)sizeof(t_block) );
+	node->size = size;
 	node->mem_size = size - sizeof(t_block);
-
-	// check if the block is aligned in x16
-	assert((uintptr_t)node % 16 == 0 \
-		&& node->size % 16 == 0 \
-		&& node->mem_size % 16 == 0);
 
 	node->state = FREE;
 	node->next = NULL;
@@ -61,13 +46,11 @@ void	*asign_block(size_t size, t_block *block)
 		return NULL;
 	if (block->size < size + sizeof(t_block))
 		return NULL;
-	//block->size = size + sizeof(t_block);
+
 	block->state = ASIGNED;
 	block->mem_size = block->size - sizeof(t_block);
-	//header->current_size += block->size;
-	//current_allocs_size(ASIGNED, block->size);
 	return block->mem;
-}//(void*)((char*)block + sizeof(t_block));
+}
 
 t_header	*find_header_from_block(t_block *block)
 {
@@ -79,9 +62,8 @@ t_header	*find_header_from_block(t_block *block)
 		tmp_block = header->blocks;
 		while (tmp_block)
 		{
-			if (tmp_block == block) {
+			if (tmp_block == block)
 				return header;
-			}
 			tmp_block = tmp_block->next;
 		}
 		header = header->next;

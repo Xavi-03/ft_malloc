@@ -67,9 +67,9 @@ typedef struct	s_header {
 
 typedef struct	s_block {
 	void			*mem;
-	size_t			size;
 	uint64_t		mem_size;
 	t_state			state;
+	size_t			size;
 	struct	s_block	*next;
 	struct	s_block	*prev;
 }	t_block;
@@ -122,7 +122,7 @@ t_header	*get_header_node(size_t size);
 void 		*get_header_mem(size_t size, t_header *header);
 t_block		*add_block_to_header(size_t size, t_header *header);
 t_block		*get_block_from_header(size_t size, t_header *header);
-int			check_header_blocks_size(size_t size, t_header *header);
+int			check_free_blocks_size(size_t size, t_header *header);
 
 // src/linked_list/block.c
 t_block		*create_block_node(size_t size, t_header *header_mem);

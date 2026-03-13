@@ -1,7 +1,10 @@
 CC      := clang
 NAME    := ft_malloc.so
-CFLAGS  := -Wall -Werror -Wextra
-DEBBUGFLAGS := -D SHOW_DUMP=1 -D SHOW_MALLOC=1 -D SHOW_MALLOC_INFO=1
+CFLAGS  := -Wall -Werror -Wextra -fPIC
+DUMPFLAG	:= -D SHOW_DUMP=1
+ALLOCFLAG	:= -D SHOW_MALLOC=1
+ALLOCINFOFLAS	:= -D SHOW_MALLOC_INFO=1
+DEBBUGFLAGS := $(DUMPFLAG) $(ALLOCFLAG) $(ALLOCINFOFLAS)
 CALLOCFLAGS := -D CALLOC=1
 
 LIBFT   := ./libft
@@ -15,16 +18,17 @@ HEADERS := -I $(INCLUDE_DIR) -I $(LIBFT_INC)
 LIBS    := -L $(LIBFT_LIB)/ -lft
 
 
-SRCS := src/debbug.c \
-		src/malloc.c \
-		src/free.c \
-		src/global_managment.c \
-		src/memory_managment.c \
+SRCS := src/malloc.c \
 		src/realloc.c \
-		src/utils.c \
+		src/free.c \
 		src/linked_list/block.c \
 		src/linked_list/header.c \
-		src/linked_list/linked_list_utils.c
+		src/managment/global_managment.c \
+		src/managment/memory_managment.c \
+		src/utils/linked_list_utils.c \
+		src/utils/debbug.c \
+		src/utils/utils.c
+
 
 OBJ_DIR := obj
 OBJS := $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
@@ -35,22 +39,13 @@ all: $(NAME)
 libft: Makefile
 	@make -s -C $(LIBFT)
 
-$(OBJ_DIR)/%.o: %.c Makefile
+$(OBJ_DIR)/%.o: %.c ./libft/libft.a $(SRCS) Makefile ./includes/galloc.h
 	@mkdir -p $(dir $@)
-	@$(CC) $(CFLAGS) -fPIC -o $@ -c $< $(HEADERS) && printf "Compiling: $(notdir $<)\n"
+	@$(CC) $(CFLAGS) -o $@ -c $< $(HEADERS) && printf "Compiling: $(notdir $<)\n"
 
-$(NAME): libft $(OBJS) Makefile
-	@$(CC)  -shared -fPIC  $(CFLAGS) $(OBJS) $(LIBS) $(HEADERS) -o $(NAME) -ldl
+$(NAME): libft $(OBJS) Makefile ./includes/galloc.h
+	@$(CC) -shared $(CFLAGS) $(OBJS) $(LIBS) $(HEADERS) -o $(NAME)
 #-shared -fPIC   -ldl
-debbug: fclean $(NAME)
-	@mkdir -p $(dir $@)
-	@$(CC) $(CFLAGS) $(DEBBUGFLAGS) -o $@ -c $< $(HEADERS) && printf "Compiling: $(notdir $<)\n"
-	@$(CC) $(CFLAGS) $(DEBBUGFLAGS) $(OBJS) $(LIBS) $(HEADERS) -o $(NAME)
-
-calloc: fclean
-	@mkdir -p $(dir $@)
-	@$(CC) $(CFLAGS) $(CALLOCFLAGS) -o $@ -c $< $(HEADERS) && printf "Compiling: $(notdir $<)\n"
-	@$(CC) $(CFLAGS) $(CALLOCFLAGS)  $(OBJS) $(LIBS) $(HEADERS) -o $(NAME)
 
 clean:
 	@rm -rf $(OBJS)
@@ -63,4 +58,19 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re libft
+debbug: CFLAGS += $(DEBBUGFLAGS)
+debbug: re
+
+calloc: CFLAGS += $(CALLOCFLAGS)
+calloc: re
+
+dump: CFLAGS += $(DUMPFLAG)
+dump: re
+
+alloc: CFLAGS += $(ALLOCFLAG)
+alloc: re
+
+alloc_info: CFLAGS += $(ALLOCINFOFLAS)
+alloc_info: re
+
+.PHONY: all clean fclean re libft debbug calloc dump alloc alloc_info

@@ -38,16 +38,18 @@ CC = cc
 
 CFLAGS = -Wall -Wextra -Werror
 
-%.o: %.c Makefile libft.h 
-	 ${CC} ${CFLAGS} -c $< -o $@
-
-
-${NAME}: ${OBJS}
-				${LIB} ${NAME} ${OBJS} 
-
 all: ${NAME}
 
-clean: 
+%.o: %.c ${SRC} Makefile libft.h
+	 ${CC} ${CFLAGS} -c $< -o $@ && printf "Compiling: $(notdir $<)\n"
+
+
+${NAME}: ${OBJS} Makefile libft.h
+	${LIB} ${NAME} ${OBJS}
+
+
+
+clean:
 	${RM} ${OBJS} ${BONUS_OBJS}
 	${RM} bonus
 
