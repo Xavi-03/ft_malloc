@@ -18,6 +18,6 @@ int get_size_header(size_t size)
 		return (N + sizeof(t_block)) * 100 + sizeof(t_header) + padding;// sysconf(_SC_PAGESIZE)) ;
 	else if (size <= M)
 		return (M + sizeof(t_block)) * 100 + sizeof(t_header) + padding;
-	else    //this is the calc for the padding
+	else
 		return size + sizeof(t_block) + sizeof(t_header) + padding;
 }

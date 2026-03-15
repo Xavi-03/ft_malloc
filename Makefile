@@ -1,5 +1,10 @@
+ifeq ($(HOSTTYPE),)
+	HOSTTYPE := $(shell uname -m)_$(shell uname -s)
+endif
+
 CC      := clang
-NAME    := ft_malloc.so
+NAME    := libft_malloc_$(HOSTTYPE).so
+LINK    := libft_malloc.so
 CFLAGS  := -Wall -Werror -Wextra -fPIC
 DUMPFLAG	:= -D SHOW_DUMP=1
 ALLOCFLAG	:= -D SHOW_MALLOC=1
@@ -45,7 +50,8 @@ $(OBJ_DIR)/%.o: %.c ./libft/libft.a $(SRCS) Makefile ./includes/galloc.h
 
 $(NAME): libft $(OBJS) Makefile ./includes/galloc.h
 	@$(CC) -shared $(CFLAGS) $(OBJS) $(LIBS) $(HEADERS) -o $(NAME)
-#-shared -fPIC   -ldl
+	@ln -sf $(NAME) $(LINK)
+
 
 clean:
 	@rm -rf $(OBJS)
@@ -54,6 +60,7 @@ clean:
 
 fclean: clean
 	@rm -rf $(NAME)
+	@rm -rf $(LINK)
 	@make -s -C $(LIBFT) fclean
 
 re: fclean all

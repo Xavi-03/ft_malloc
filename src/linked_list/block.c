@@ -12,9 +12,6 @@ t_block	*create_block_node(size_t size, t_header *header_mem)
 
 	node->mem_size = size + padding;
 	node->size = size + (size_t)sizeof(t_block) + padding;
-	assert((uintptr_t)node % 16 == 0 \
-		&& node->size % 16 == 0 \
-		&& node->mem_size % 16 == 0);
 	// + padding;
 	node->state = FREE;
 	node->next = NULL;

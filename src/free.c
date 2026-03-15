@@ -8,10 +8,10 @@ void	remove_header(t_header *header)
 	if (header == get_main_header())
 	{
 		set_main_header(header->next);
+		pthread_mutex_unlock(&(g_main_mutex));
 		if (munmap(header, header->size) == -1)
 		{
 			write(2, "munmap(): fatal error\n", 22);
-			pthread_mutex_unlock(&(g_main_mutex));
 			*(volatile char *)0 = 0; //my own abort
 		}
 		return;
@@ -20,10 +20,10 @@ void	remove_header(t_header *header)
 		header->prev->next = header->next;
 	if (header->next)
 		header->next->prev = header->prev;
+	pthread_mutex_unlock(&(g_main_mutex));
 	if (munmap(header, header->size) == -1)
 	{
 		write(2, "munmap(): fatal error\n", 22);
-		pthread_mutex_unlock(&(g_main_mutex));
 		*(volatile char *)0 = 0; //my own abort
 	}
 }
@@ -34,7 +34,6 @@ void	free(void *ptr)
 		return ;
 
 	pthread_mutex_lock(&(g_main_mutex));
-
 	t_block	*block = (t_block *)((char *)ptr - sizeof(t_block));
 	t_header *header = find_header_from_block(block);
 
@@ -52,8 +51,8 @@ void	free(void *ptr)
 	if (get_last_block(header->blocks) == header->blocks \
 		&& header->blocks->state == FREE)
 	{
+		//pthread_mutex_unlock(&(g_main_mutex)); // called inside of remove_header()
 		remove_header(header); // remove this header and free the memory
-		pthread_mutex_unlock(&(g_main_mutex));
 		return ;
 	}
 	else if (!block->next && block->prev)
