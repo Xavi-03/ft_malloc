@@ -16,13 +16,13 @@ int main(void) {
 	}
 	malloc(1);
 	free(ptr2);
-	show_alloc_mem();
+//	show_alloc_mem();
 	malloc(1);
-	show_alloc_mem();
+//	show_alloc_mem();
 	malloc(64);
-	show_alloc_mem();
+//	show_alloc_mem();
 	free(ptr1);
-	show_alloc_mem();
+//	show_alloc_mem();
 	malloc(128);
-	show_alloc_mem();
+//	show_alloc_mem();
 }
