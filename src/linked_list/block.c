@@ -21,9 +21,6 @@ t_block	*create_block_node(size_t size, t_header *header_mem)
 	node->prev = NULL;
 	header->current_size += node->size;
 	current_allocs_size(ASIGNED, node->size);
-	ft_printf("-\n");
-	ft_printf("size %u header current %u node size %u node mem %u\n", size, header->current_size, node->size, node->mem_size);
-	ft_printf(".\n");
 	return node;
 }
 

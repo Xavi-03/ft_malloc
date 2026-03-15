@@ -133,7 +133,7 @@ void debug_mode(t_block *block, char *type, size_t size) {
 	if (CALLOC)
 		clear_memory(block);
 	if (SHOW_MALLOC && type)
-		ft_printf("\n\t##  %s  ##  block size %u  ##  mem size %u  ##  param size %u  ##\n", type, block->size, block->mem_size, size);
+		ft_printf("\n\t##%s  ##  block size %u  ##  mem size %u  ##  param size %u  ##\n", type, block->size, block->mem_size, size);
 	if (SHOW_MALLOC_INFO)
 		ft_printf("\n\tblock:\t\t%p\n\tmem:\t\t%p\n\tsize:\t\t%u\n\tmem_size:\t%u\n\n", block, block->mem, block->size, block->mem_size);
 	if (SHOW_DUMP)

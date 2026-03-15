@@ -34,6 +34,7 @@ void	free(void *ptr)
 		return ;
 
 	pthread_mutex_lock(&(g_main_mutex));
+
 	t_block	*block = (t_block *)((char *)ptr - sizeof(t_block));
 	t_header *header = find_header_from_block(block);
 
@@ -41,7 +42,7 @@ void	free(void *ptr)
 	{
 		write(2, "free(): invalid pointer\n", 24);
 		pthread_mutex_unlock(&(g_main_mutex));
-		*(volatile char *)0 = 0; //my own abort
+		return ;
 	}
 
 	block->state = FREE;

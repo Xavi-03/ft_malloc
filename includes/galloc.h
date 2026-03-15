@@ -66,12 +66,12 @@ typedef struct	s_header {
 }	t_header;
 
 typedef struct	s_block {
-	void			*mem;
 	uint64_t		mem_size;
 	t_state			state;
 	size_t			size;
 	struct	s_block	*next;
 	struct	s_block	*prev;
+	void			*mem;
 }	t_block;
 
 static pthread_mutex_t g_main_mutex = PTHREAD_MUTEX_INITIALIZER;

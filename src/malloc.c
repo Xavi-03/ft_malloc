@@ -37,8 +37,6 @@ void *malloc(size_t size)
 	void *ptr = asign_block(size, block);
 
 	debug_mode(block, "MALLOC", size);
-	show_alloc_mem();
-	ft_printf("header %p \n", header);
 	pthread_mutex_unlock(&(g_main_mutex));
 	return ptr;
 }
