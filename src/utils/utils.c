@@ -13,11 +13,27 @@ t_type get_type_header(size_t size)
 
 int get_size_header(size_t size)
 {
-	size_t padding = (size % 16) ? 16 - (size % 16) : 0;
-	if (size <= N)
-		return (N + sizeof(t_block)) * 100 + sizeof(t_header) + padding;// sysconf(_SC_PAGESIZE)) ;
-	else if (size <= M)
-		return (M + sizeof(t_block)) * 100 + sizeof(t_header) + padding;
-	else
-		return size + sizeof(t_block) + sizeof(t_header) + padding;
+	size_t total;
+    size_t pagesize = sysconf(_SC_PAGESIZE);  // 4096
+
+    if (size <= N)
+        total = (N + sizeof(t_block)) * 100 + sizeof(t_header);
+    else if (size <= M)
+        total = (M + sizeof(t_block)) * 100 + sizeof(t_header);
+    else
+        total = size + sizeof(t_block) + sizeof(t_header);
+
+    return (total + pagesize - 1) / pagesize * pagesize;
+}
+
+// checking if the ptr is in the range of the headers
+int ptr_was_in_headers(uintptr_t ptr) {
+	t_header *header = get_main_header();
+	while (header)
+	{
+		if ((uintptr_t)header < ptr && ptr < (uintptr_t)header + header->size)
+			return 1;
+		header = header->next;
+	}
+	return 0;
 }

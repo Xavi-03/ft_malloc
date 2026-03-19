@@ -36,7 +36,7 @@ LIB = ar rcs
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -g -Wall -Wextra -Werror
 
 all: ${NAME}
 

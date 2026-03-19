@@ -15,8 +15,8 @@
 # include <assert.h> // debug
 
 // Size limits of blocks
-# define N 128
-# define M 1024
+# define N 256
+# define M 2048
 
 #ifndef SHOW_MALLOC
 	# define SHOW_MALLOC 0
@@ -66,12 +66,12 @@ typedef struct	s_header {
 }	t_header;
 
 typedef struct	s_block {
+	void			*mem;
 	uint64_t		mem_size;
 	t_state			state;
 	size_t			size;
 	struct	s_block	*next;
 	struct	s_block	*prev;
-	void			*mem;
 }	t_block;
 
 static pthread_mutex_t g_main_mutex = PTHREAD_MUTEX_INITIALIZER;
@@ -95,6 +95,7 @@ void *alloc_category(size_t size);
 // src/global_managment.c
 t_header	*get_main_header(void);
 void		set_main_header(void *ptr);
+pthread_mutex_t	*get_global_mutes(void);
 
 // src/memoty_managment.c
 void	*get_mmap_region(size_t header_total_size);
@@ -115,6 +116,7 @@ void	debug_mode(t_block *block, char *type, size_t size);
 // src/utils.c
 t_type		get_type_header(size_t size);
 int			get_size_header(size_t size);
+int			ptr_was_in_headers(uintptr_t ptr);
 
 // src/linked_list/header.c
 t_header	*create_header_node(size_t size);

@@ -35,6 +35,7 @@ static char *header_type(t_type type) {
 
 void	show_alloc_mem(void)
 {
+	pthread_mutex_lock(get_global_mutes());
 	t_header	*header = get_main_header();
 	t_block		*block = NULL;
 
@@ -52,18 +53,20 @@ void	show_alloc_mem(void)
 		ft_printf("\n");
 		header = header->next;
 	}
+	pthread_mutex_unlock(get_global_mutes());
 }
 
 void	show_alloc_mem_ex(void)
 {
+	pthread_mutex_lock(get_global_mutes());
 	t_header	*header = get_main_header();
 	t_block		*block = NULL;
 
 	ft_printf("Current memory use: %u\n", current_allocs_size(GET_MEMORY_SIZE, 0));
 	while (header)
 	{
-		ft_printf("\nheader: %p\n\tsize: %u\n\tcurrent: %u\n\ttype: %i\n\n", \
-			header, header->size, header->current_size, header->type);
+		ft_printf("\nheader: %p\n\tsize: %u\n\tcurrent: %u\n\ttype: %s\n\n", \
+			header, header->size, header->current_size, header_type(header->type));
 		block = header->blocks;
 		while (block)
 		{
@@ -76,6 +79,7 @@ void	show_alloc_mem_ex(void)
 		ft_printf("\n");
 		header = header->next;
 	}
+	pthread_mutex_unlock(get_global_mutes());
 }
 
 static void	print_mem(uint8_t data) {
@@ -133,7 +137,7 @@ void debug_mode(t_block *block, char *type, size_t size) {
 	if (CALLOC)
 		clear_memory(block);
 	if (SHOW_MALLOC && type)
-		ft_printf("\n\t##%s  ##  block size %u  ##  mem size %u  ##  param size %u  ##\n", type, block->size, block->mem_size, size);
+		ft_printf("\n\t##  %s  ##  block size %u  ##  mem size %u  ##  param size %u  ##\n", type, block->size, block->mem_size, size);
 	if (SHOW_MALLOC_INFO)
 		ft_printf("\n\tblock:\t\t%p\n\tmem:\t\t%p\n\tsize:\t\t%u\n\tmem_size:\t%u\n\n", block, block->mem, block->size, block->mem_size);
 	if (SHOW_DUMP)

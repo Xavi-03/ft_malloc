@@ -5,7 +5,7 @@ endif
 CC      := clang
 NAME    := libft_malloc_$(HOSTTYPE).so
 LINK    := libft_malloc.so
-CFLAGS  := -Wall -Werror -Wextra -fPIC
+CFLAGS  := -g -Wall -Werror -Wextra -fPIC
 DUMPFLAG	:= -D SHOW_DUMP=1
 ALLOCFLAG	:= -D SHOW_MALLOC=1
 ALLOCINFOFLAS	:= -D SHOW_MALLOC_INFO=1

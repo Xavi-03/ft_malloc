@@ -28,4 +28,13 @@ int main(void) {
 	free(ptr5);
 	free(ptr6);
 	show_alloc_mem();
+	ptr1 = malloc(1);
+	ptr2 = malloc(n);
+
+	ptr3 = malloc(n + 1);
+	ptr4 = malloc(m);
+
+	ptr5 = malloc(m + 1);
+	ptr6 = malloc(m * m);
+	show_alloc_mem();
 }

@@ -4,15 +4,14 @@
 t_block	*create_block_node(size_t size, t_header *header_mem)
 {
 	t_header *header = header_mem;
-	uint8_t padding = 16 - (size % 16);
-	padding = (padding == 16) ? 0 : padding;
+	uint8_t padding = (size % 16) ? 16 - (size % 16) : 0;
 
 	t_block *node = (t_block *)((uintptr_t)header_mem + header_mem->current_size);
 	node->mem = (void *)((uintptr_t)node + (size_t)sizeof(t_block));
 
 	node->mem_size = size + padding;
 	node->size = size + (size_t)sizeof(t_block) + padding;
-	// + padding;
+
 	node->state = FREE;
 	node->next = NULL;
 	node->prev = NULL;
@@ -23,14 +22,14 @@ t_block	*create_block_node(size_t size, t_header *header_mem)
 
 t_block	*create_block_from_ptr(size_t size, void *ptr)
 {
-	t_block	*node = (void *)(((uintptr_t)ptr + 15) & ~(uintptr_t)0xF);
-	node->mem = (void *)((char *)node + (size_t)sizeof(t_block) );
-	node->size = size;
-	node->mem_size = size - sizeof(t_block);
+	t_block *node   = (t_block *)ptr;
 
-	node->state = FREE;
-	node->next = NULL;
-	node->prev = NULL;
+    node->mem = (void *)((uintptr_t)node + sizeof(t_block));
+    node->size = size;
+    node->mem_size = size - sizeof(t_block);
+    node->state = FREE;
+    node->next = NULL;
+    node->prev = NULL;
 	return node;
 }
 

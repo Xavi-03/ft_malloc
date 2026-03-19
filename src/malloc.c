@@ -15,19 +15,18 @@ void *malloc(size_t size)
 {
 	if (size == 0) // handle the case of size 0, real malloc works
 		size = 1;
-	pthread_mutex_lock(&(g_main_mutex));
-
+	pthread_mutex_lock(get_global_mutes());
 	t_header	*header = get_header_node(size);
 	if (!header)
 	{
-		pthread_mutex_unlock(&(g_main_mutex));
+		pthread_mutex_unlock(get_global_mutes());
 		return NULL;
 	}
 
 	t_block *block = get_block_from_header(size, header);
 	if (!block)
 	{
-		pthread_mutex_unlock(&(g_main_mutex));
+		pthread_mutex_unlock(get_global_mutes());
 		return NULL;
 	}
 
@@ -35,8 +34,7 @@ void *malloc(size_t size)
 	if (block->size - sizeof(t_block) > size + padding)
 		split_block(block, size);
 	void *ptr = asign_block(size, block);
-
 	debug_mode(block, "MALLOC", size);
-	pthread_mutex_unlock(&(g_main_mutex));
+	pthread_mutex_unlock(get_global_mutes());
 	return ptr;
 }

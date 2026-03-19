@@ -1,0 +1,2768 @@
+malloc 5
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e14030
+free
+malloc 120
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e14070
+malloc 12
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e14030
+malloc 792
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0dad030
+malloc 104
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e14120
+malloc 1328
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0dad380
+malloc 208
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e141c0
+malloc 424
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0dad8e0
+malloc 96
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e142c0
+malloc 80
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e14350
+Current memory use: 3728
+
+header: 0x7f04b0e14000
+	size: 32768
+	current: 976
+	type: TINY
+
+	block:		0x7f04b0e14030
+	mem:		0x7f04b0e14060
+	size:		64
+	mem_size:	16
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e14070
+	mem:		0x7f04b0e140a0
+	size:		176
+	mem_size:	128
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e14120
+	mem:		0x7f04b0e14150
+	size:		160
+	mem_size:	112
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e141c0
+	mem:		0x7f04b0e141f0
+	size:		256
+	mem_size:	208
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e142c0
+	mem:		0x7f04b0e142f0
+	size:		144
+	mem_size:	96
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e14350
+	mem:		0x7f04b0e14380
+	size:		128
+	mem_size:	80
+	state:		ASIGNED
+
+
+
+
+header: 0x7f04b0dad000
+	size: 212992
+	current: 2752
+	type: SMALL
+
+	block:		0x7f04b0dad030
+	mem:		0x7f04b0dad060
+	size:		848
+	mem_size:	800
+	state:		ASIGNED
+
+
+	block:		0x7f04b0dad380
+	mem:		0x7f04b0dad3b0
+	size:		1376
+	mem_size:	1328
+	state:		ASIGNED
+
+
+	block:		0x7f04b0dad8e0
+	mem:		0x7f04b0dad910
+	size:		480
+	mem_size:	432
+	state:		ASIGNED
+
+
+
+malloc 112
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e143d0
+malloc 160
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e14470
+malloc 96
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e14540
+malloc 72
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e145d0
+malloc 184
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e14650
+malloc 12
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e14740
+malloc 12
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e14780
+malloc 12
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e147c0
+malloc 12
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e14800
+malloc 12
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e14840
+malloc 12
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e14880
+malloc 5
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e148c0
+free
+malloc 120
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e148c0
+malloc 12
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e14970
+malloc 792
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0dadac0
+malloc 104
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e149b0
+malloc 1328
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0dade10
+malloc 208
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e14a50
+malloc 424
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0dae370
+malloc 96
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e14b50
+malloc 80
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e14be0
+Current memory use: 8624
+
+header: 0x7f04b0e14000
+	size: 32768
+	current: 3168
+	type: TINY
+
+	block:		0x7f04b0e14030
+	mem:		0x7f04b0e14060
+	size:		64
+	mem_size:	16
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e14070
+	mem:		0x7f04b0e140a0
+	size:		176
+	mem_size:	128
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e14120
+	mem:		0x7f04b0e14150
+	size:		160
+	mem_size:	112
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e141c0
+	mem:		0x7f04b0e141f0
+	size:		256
+	mem_size:	208
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e142c0
+	mem:		0x7f04b0e142f0
+	size:		144
+	mem_size:	96
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e14350
+	mem:		0x7f04b0e14380
+	size:		128
+	mem_size:	80
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e143d0
+	mem:		0x7f04b0e14400
+	size:		160
+	mem_size:	112
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e14470
+	mem:		0x7f04b0e144a0
+	size:		208
+	mem_size:	160
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e14540
+	mem:		0x7f04b0e14570
+	size:		144
+	mem_size:	96
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e145d0
+	mem:		0x7f04b0e14600
+	size:		128
+	mem_size:	80
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e14650
+	mem:		0x7f04b0e14680
+	size:		240
+	mem_size:	192
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e14740
+	mem:		0x7f04b0e14770
+	size:		64
+	mem_size:	16
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e14780
+	mem:		0x7f04b0e147b0
+	size:		64
+	mem_size:	16
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e147c0
+	mem:		0x7f04b0e147f0
+	size:		64
+	mem_size:	16
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e14800
+	mem:		0x7f04b0e14830
+	size:		64
+	mem_size:	16
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e14840
+	mem:		0x7f04b0e14870
+	size:		64
+	mem_size:	16
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e14880
+	mem:		0x7f04b0e148b0
+	size:		64
+	mem_size:	16
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e148c0
+	mem:		0x7f04b0e148f0
+	size:		176
+	mem_size:	128
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e14970
+	mem:		0x7f04b0e149a0
+	size:		64
+	mem_size:	16
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e149b0
+	mem:		0x7f04b0e149e0
+	size:		160
+	mem_size:	112
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e14a50
+	mem:		0x7f04b0e14a80
+	size:		256
+	mem_size:	208
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e14b50
+	mem:		0x7f04b0e14b80
+	size:		144
+	mem_size:	96
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e14be0
+	mem:		0x7f04b0e14c10
+	size:		128
+	mem_size:	80
+	state:		ASIGNED
+
+
+
+
+header: 0x7f04b0dad000
+	size: 212992
+	current: 5456
+	type: SMALL
+
+	block:		0x7f04b0dad030
+	mem:		0x7f04b0dad060
+	size:		848
+	mem_size:	800
+	state:		ASIGNED
+
+
+	block:		0x7f04b0dad380
+	mem:		0x7f04b0dad3b0
+	size:		1376
+	mem_size:	1328
+	state:		ASIGNED
+
+
+	block:		0x7f04b0dad8e0
+	mem:		0x7f04b0dad910
+	size:		480
+	mem_size:	432
+	state:		ASIGNED
+
+
+	block:		0x7f04b0dadac0
+	mem:		0x7f04b0dadaf0
+	size:		848
+	mem_size:	800
+	state:		ASIGNED
+
+
+	block:		0x7f04b0dade10
+	mem:		0x7f04b0dade40
+	size:		1376
+	mem_size:	1328
+	state:		ASIGNED
+
+
+	block:		0x7f04b0dae370
+	mem:		0x7f04b0dae3a0
+	size:		480
+	mem_size:	432
+	state:		ASIGNED
+
+
+
+malloc 112
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e14c60
+malloc 160
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e14d00
+malloc 96
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e14dd0
+malloc 72
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e14e60
+malloc 184
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e14ee0
+malloc 12
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e14fd0
+malloc 12
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e15010
+malloc 12
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e15050
+malloc 12
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e15090
+malloc 12
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e150d0
+malloc 12
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e15110
+malloc 281
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0dae550
+free
+free
+malloc 34
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e15150
+malloc 10
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e151b0
+malloc 56
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e151f0
+malloc 56
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e15260
+malloc 21
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e152d0
+malloc 12
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e15320
+malloc 51
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e15360
+free
+malloc 472
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0dae6a0
+malloc 4096
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e12030
+realloc
+malloc 1600
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0dae8b0
+realloc
+malloc 1024
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0daef20
+realloc
+free
+free
+malloc 5
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e15360
+malloc 56
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e153a0
+malloc 104
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e15410
+malloc 51
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e154b0
+malloc 72
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e15520
+malloc 45
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e155a0
+malloc 56
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e15600
+malloc 42
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e15670
+malloc 48
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e156d0
+malloc 48
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e15730
+malloc 56
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e15790
+malloc 42
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e15800
+free
+malloc 42
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e15800
+free
+malloc 50
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e15800
+malloc 72
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e15870
+malloc 45
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e158f0
+free
+malloc 47
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e158f0
+malloc 56
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e15950
+malloc 42
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e159c0
+free
+malloc 42
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e159c0
+free
+malloc 45
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e159c0
+free
+malloc 53
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e159c0
+malloc 72
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e15a30
+malloc 48
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e15ab0
+free
+malloc 47
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e15ab0
+free
+malloc 42
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e15ab0
+free
+malloc 48
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e15ab0
+free
+malloc 47
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e15ab0
+free
+malloc 42
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e15ab0
+free
+malloc 200
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e15ab0
+malloc 32
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e15bb0
+malloc 32
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e15c00
+malloc 32
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e15c50
+free
+malloc 24
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e15ca0
+malloc 6
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e15360
+malloc 6
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e15cf0
+malloc 6
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e15d30
+malloc 8
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e15d70
+malloc 8
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e15db0
+free
+free
+free
+free
+free
+free
+free
+malloc 88
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e152d0
+malloc 24
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e15cf0
+malloc 21
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e15d40
+malloc 12
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e15d90
+malloc 51
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e15dd0
+free
+free
+free
+free
+malloc 90
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e15d40
+malloc 24
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e15dd0
+malloc 128
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e15e20
+malloc 20800
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e07030
+malloc 32
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e15ed0
+malloc 2
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e15f20
+malloc 32816
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0dfe030
+malloc 1024
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0daf750
+malloc 216
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e15f60
+malloc 472
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0dae6a0
+malloc 120
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16070
+malloc 4096
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0dfc030
+malloc 542
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0dafb80
+malloc 544
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0dafdd0
+malloc 64
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16120
+malloc 64
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16190
+malloc 48
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16200
+malloc 547
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0db0020
+malloc 544
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0db0280
+malloc 547
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0db04d0
+malloc 540
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0db0730
+malloc 112
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16260
+free
+malloc 540
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0db0980
+malloc 48
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16070
+free
+free
+malloc 472
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0dae6a0
+malloc 4096
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0dfc030
+free
+free
+free
+malloc 32
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e160d0
+malloc 1024
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0db0bd0
+malloc 472
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0dae6a0
+malloc 4096
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0dfc030
+free
+free
+free
+malloc 1024
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0db1000
+malloc 8
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16300
+free
+malloc 20
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16300
+malloc 29
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16350
+malloc 29
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e163a0
+malloc 19
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e163f0
+malloc 19
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16440
+malloc 23
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16490
+malloc 23
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e164e0
+malloc 56
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16530
+malloc 56
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e165a0
+malloc 88
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16610
+malloc 24
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e166a0
+malloc 2808
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0dfd030
+free
+free
+malloc 25
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16300
+malloc 72
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e166a0
+free
+free
+malloc 25
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16300
+malloc 72
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e166a0
+free
+free
+malloc 22
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16300
+free
+malloc 24
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16300
+malloc 71
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e166a0
+free
+free
+malloc 23
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16300
+malloc 70
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e166a0
+free
+free
+malloc 25
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16300
+malloc 72
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e166a0
+free
+free
+malloc 25
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16300
+malloc 72
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e166a0
+free
+free
+malloc 22
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16300
+free
+malloc 23
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16300
+malloc 70
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e166a0
+free
+free
+malloc 24
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16300
+malloc 71
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e166a0
+free
+free
+malloc 22
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16300
+free
+malloc 22
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16300
+free
+malloc 30
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16300
+malloc 77
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e166a0
+free
+free
+malloc 27
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16300
+malloc 74
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e166a0
+free
+free
+malloc 28
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16300
+malloc 75
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e166a0
+free
+free
+malloc 27
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16300
+malloc 74
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e166a0
+free
+free
+malloc 24
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16300
+free
+malloc 24
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16300
+free
+malloc 24
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16300
+free
+malloc 30
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16300
+malloc 77
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e166a0
+free
+free
+malloc 29
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16300
+malloc 76
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e166a0
+free
+free
+malloc 30
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16300
+malloc 77
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e166a0
+free
+free
+malloc 30
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16300
+malloc 77
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e166a0
+free
+free
+malloc 30
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16300
+malloc 77
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e166a0
+free
+free
+malloc 29
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16300
+malloc 76
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e166a0
+free
+free
+malloc 26
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16300
+malloc 73
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e166a0
+free
+free
+malloc 26
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16300
+malloc 73
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e166a0
+free
+free
+malloc 28
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16300
+malloc 75
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e166a0
+free
+free
+malloc 28
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16300
+malloc 75
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e166a0
+free
+free
+malloc 25
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16300
+malloc 72
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e166a0
+free
+free
+malloc 27
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16300
+malloc 74
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e166a0
+free
+free
+malloc 26
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16300
+malloc 73
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e166a0
+free
+free
+malloc 30
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16300
+malloc 77
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e166a0
+free
+free
+malloc 32
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16300
+malloc 79
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e166a0
+free
+free
+malloc 27
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16300
+malloc 74
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e166a0
+free
+free
+malloc 26
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16300
+malloc 73
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e166a0
+free
+free
+malloc 24
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16300
+free
+malloc 24
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16300
+free
+malloc 24
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16300
+free
+malloc 28
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16300
+malloc 75
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e166a0
+free
+free
+malloc 30
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16300
+malloc 77
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e166a0
+free
+free
+malloc 25
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16300
+malloc 72
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e166a0
+free
+free
+malloc 26
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16300
+malloc 73
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e166a0
+free
+free
+malloc 29
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16300
+malloc 76
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e166a0
+free
+free
+malloc 29
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16300
+malloc 76
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e166a0
+free
+free
+malloc 26
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16300
+malloc 73
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e166a0
+free
+free
+malloc 24
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16300
+free
+malloc 24
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16300
+free
+malloc 24
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16300
+free
+malloc 24
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16300
+free
+malloc 28
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16300
+free
+malloc 26
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16300
+malloc 73
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e166a0
+free
+free
+malloc 25
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16300
+malloc 72
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e166a0
+free
+free
+malloc 25
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16300
+malloc 72
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e166a0
+free
+free
+malloc 22
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16300
+free
+malloc 24
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16300
+malloc 71
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e166a0
+free
+free
+malloc 23
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16300
+malloc 70
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e166a0
+free
+free
+malloc 25
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16300
+malloc 72
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e166a0
+free
+free
+malloc 25
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16300
+malloc 72
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e166a0
+free
+free
+malloc 22
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16300
+free
+malloc 23
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16300
+malloc 70
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e166a0
+free
+free
+malloc 24
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16300
+malloc 71
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e166a0
+free
+free
+malloc 22
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16300
+free
+malloc 22
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16300
+free
+malloc 144
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e166a0
+malloc 80
+aqui? 1
+aqui? 2
+aqui? 3
+aqui? 4
+aqui? 5 0x7f04b0e16760
+Current memory use: 84384
+
+header: 0x7f04b0e14000
+	size: 32768
+	current: 10208
+	type: TINY
+
+	block:		0x7f04b0e14030
+	mem:		0x7f04b0e14060
+	size:		64
+	mem_size:	16
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e14070
+	mem:		0x7f04b0e140a0
+	size:		176
+	mem_size:	128
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e14120
+	mem:		0x7f04b0e14150
+	size:		160
+	mem_size:	112
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e141c0
+	mem:		0x7f04b0e141f0
+	size:		256
+	mem_size:	208
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e142c0
+	mem:		0x7f04b0e142f0
+	size:		144
+	mem_size:	96
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e14350
+	mem:		0x7f04b0e14380
+	size:		128
+	mem_size:	80
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e143d0
+	mem:		0x7f04b0e14400
+	size:		160
+	mem_size:	112
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e14470
+	mem:		0x7f04b0e144a0
+	size:		208
+	mem_size:	160
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e14540
+	mem:		0x7f04b0e14570
+	size:		144
+	mem_size:	96
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e145d0
+	mem:		0x7f04b0e14600
+	size:		128
+	mem_size:	80
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e14650
+	mem:		0x7f04b0e14680
+	size:		240
+	mem_size:	192
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e14740
+	mem:		0x7f04b0e14770
+	size:		64
+	mem_size:	16
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e14780
+	mem:		0x7f04b0e147b0
+	size:		64
+	mem_size:	16
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e147c0
+	mem:		0x7f04b0e147f0
+	size:		64
+	mem_size:	16
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e14800
+	mem:		0x7f04b0e14830
+	size:		64
+	mem_size:	16
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e14840
+	mem:		0x7f04b0e14870
+	size:		64
+	mem_size:	16
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e14880
+	mem:		0x7f04b0e148b0
+	size:		64
+	mem_size:	16
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e148c0
+	mem:		0x7f04b0e148f0
+	size:		176
+	mem_size:	128
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e14970
+	mem:		0x7f04b0e149a0
+	size:		64
+	mem_size:	16
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e149b0
+	mem:		0x7f04b0e149e0
+	size:		160
+	mem_size:	112
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e14a50
+	mem:		0x7f04b0e14a80
+	size:		256
+	mem_size:	208
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e14b50
+	mem:		0x7f04b0e14b80
+	size:		144
+	mem_size:	96
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e14be0
+	mem:		0x7f04b0e14c10
+	size:		128
+	mem_size:	80
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e14c60
+	mem:		0x7f04b0e14c90
+	size:		160
+	mem_size:	112
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e14d00
+	mem:		0x7f04b0e14d30
+	size:		208
+	mem_size:	160
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e14dd0
+	mem:		0x7f04b0e14e00
+	size:		144
+	mem_size:	96
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e14e60
+	mem:		0x7f04b0e14e90
+	size:		128
+	mem_size:	80
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e14ee0
+	mem:		0x7f04b0e14f10
+	size:		240
+	mem_size:	192
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e14fd0
+	mem:		0x7f04b0e15000
+	size:		64
+	mem_size:	16
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e15010
+	mem:		0x7f04b0e15040
+	size:		64
+	mem_size:	16
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e15050
+	mem:		0x7f04b0e15080
+	size:		64
+	mem_size:	16
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e15090
+	mem:		0x7f04b0e150c0
+	size:		64
+	mem_size:	16
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e150d0
+	mem:		0x7f04b0e15100
+	size:		64
+	mem_size:	16
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e15110
+	mem:		0x7f04b0e15140
+	size:		64
+	mem_size:	16
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e15150
+	mem:		0x7f04b0e15180
+	size:		96
+	mem_size:	48
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e151b0
+	mem:		0x7f04b0e151e0
+	size:		64
+	mem_size:	16
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e151f0
+	mem:		0x7f04b0e15220
+	size:		112
+	mem_size:	64
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e15260
+	mem:		0x7f04b0e15290
+	size:		112
+	mem_size:	64
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e152d0
+	mem:		0x7f04b0e15300
+	size:		144
+	mem_size:	96
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e15360
+	mem:		0x7f04b0e15390
+	size:		64
+	mem_size:	16
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e153a0
+	mem:		0x7f04b0e153d0
+	size:		112
+	mem_size:	64
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e15410
+	mem:		0x7f04b0e15440
+	size:		160
+	mem_size:	112
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e154b0
+	mem:		0x7f04b0e154e0
+	size:		112
+	mem_size:	64
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e15520
+	mem:		0x7f04b0e15550
+	size:		128
+	mem_size:	80
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e155a0
+	mem:		0x7f04b0e155d0
+	size:		96
+	mem_size:	48
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e15600
+	mem:		0x7f04b0e15630
+	size:		112
+	mem_size:	64
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e15670
+	mem:		0x7f04b0e156a0
+	size:		96
+	mem_size:	48
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e156d0
+	mem:		0x7f04b0e15700
+	size:		96
+	mem_size:	48
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e15730
+	mem:		0x7f04b0e15760
+	size:		96
+	mem_size:	48
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e15790
+	mem:		0x7f04b0e157c0
+	size:		112
+	mem_size:	64
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e15800
+	mem:		0x7f04b0e15830
+	size:		112
+	mem_size:	64
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e15870
+	mem:		0x7f04b0e158a0
+	size:		128
+	mem_size:	80
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e158f0
+	mem:		0x7f04b0e15920
+	size:		96
+	mem_size:	48
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e15950
+	mem:		0x7f04b0e15980
+	size:		112
+	mem_size:	64
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e159c0
+	mem:		0x7f04b0e159f0
+	size:		112
+	mem_size:	64
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e15a30
+	mem:		0x7f04b0e15a60
+	size:		128
+	mem_size:	80
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e15ab0
+	mem:		0x7f04b0e15ae0
+	size:		256
+	mem_size:	208
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e15bb0
+	mem:		0x7f04b0e15be0
+	size:		80
+	mem_size:	32
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e15c00
+	mem:		0x7f04b0e15c30
+	size:		80
+	mem_size:	32
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e15c50
+	mem:		0x7f04b0e15c80
+	size:		80
+	mem_size:	32
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e15ca0
+	mem:		0x7f04b0e15cd0
+	size:		80
+	mem_size:	32
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e15cf0
+	mem:		0x7f04b0e15d20
+	size:		80
+	mem_size:	32
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e15d40
+	mem:		0x7f04b0e15d70
+	size:		144
+	mem_size:	96
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e15dd0
+	mem:		0x7f04b0e15e00
+	size:		80
+	mem_size:	32
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e15e20
+	mem:		0x7f04b0e15e50
+	size:		176
+	mem_size:	128
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e15ed0
+	mem:		0x7f04b0e15f00
+	size:		80
+	mem_size:	32
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e15f20
+	mem:		0x7f04b0e15f50
+	size:		64
+	mem_size:	16
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e15f60
+	mem:		0x7f04b0e15f90
+	size:		272
+	mem_size:	224
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e16070
+	mem:		0x7f04b0e160a0
+	size:		96
+	mem_size:	48
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e160d0
+	mem:		0x7f04b0e16100
+	size:		80
+	mem_size:	32
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e16120
+	mem:		0x7f04b0e16150
+	size:		112
+	mem_size:	64
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e16190
+	mem:		0x7f04b0e161c0
+	size:		112
+	mem_size:	64
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e16200
+	mem:		0x7f04b0e16230
+	size:		96
+	mem_size:	48
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e16260
+	mem:		0x7f04b0e16290
+	size:		160
+	mem_size:	112
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e16300
+	mem:		0x7f04b0e16330
+	size:		80
+	mem_size:	32
+	state:		FREE
+
+
+	block:		0x7f04b0e16350
+	mem:		0x7f04b0e16380
+	size:		80
+	mem_size:	32
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e163a0
+	mem:		0x7f04b0e163d0
+	size:		80
+	mem_size:	32
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e163f0
+	mem:		0x7f04b0e16420
+	size:		80
+	mem_size:	32
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e16440
+	mem:		0x7f04b0e16470
+	size:		80
+	mem_size:	32
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e16490
+	mem:		0x7f04b0e164c0
+	size:		80
+	mem_size:	32
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e164e0
+	mem:		0x7f04b0e16510
+	size:		80
+	mem_size:	32
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e16530
+	mem:		0x7f04b0e16560
+	size:		112
+	mem_size:	64
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e165a0
+	mem:		0x7f04b0e165d0
+	size:		112
+	mem_size:	64
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e16610
+	mem:		0x7f04b0e16640
+	size:		144
+	mem_size:	96
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e166a0
+	mem:		0x7f04b0e166d0
+	size:		192
+	mem_size:	144
+	state:		ASIGNED
+
+
+	block:		0x7f04b0e16760
+	mem:		0x7f04b0e16790
+	size:		128
+	mem_size:	80
+	state:		ASIGNED
+
+
+
+
+header: 0x7f04b0dad000
+	size: 212992
+	current: 17456
+	type: SMALL
+
+	block:		0x7f04b0dad030
+	mem:		0x7f04b0dad060
+	size:		848
+	mem_size:	800
+	state:		ASIGNED
+
+
+	block:		0x7f04b0dad380
+	mem:		0x7f04b0dad3b0
+	size:		1376
+	mem_size:	1328
+	state:		ASIGNED
+
+
+	block:		0x7f04b0dad8e0
+	mem:		0x7f04b0dad910
+	size:		480
+	mem_size:	432
+	state:		ASIGNED
+
+
+	block:		0x7f04b0dadac0
+	mem:		0x7f04b0dadaf0
+	size:		848
+	mem_size:	800
+	state:		ASIGNED
+
+
+	block:		0x7f04b0dade10
+	mem:		0x7f04b0dade40
+	size:		1376
+	mem_size:	1328
+	state:		ASIGNED
+
+
+	block:		0x7f04b0dae370
+	mem:		0x7f04b0dae3a0
+	size:		480
+	mem_size:	432
+	state:		ASIGNED
+
+
+	block:		0x7f04b0dae550
+	mem:		0x7f04b0dae580
+	size:		336
+	mem_size:	288
+	state:		ASIGNED
+
+
+	block:		0x7f04b0dae6a0
+	mem:		0x7f04b0dae6d0
+	size:		528
+	mem_size:	480
+	state:		FREE
+
+
+	block:		0x7f04b0dae8b0
+	mem:		0x7f04b0dae8e0
+	size:		1648
+	mem_size:	1600
+	state:		ASIGNED
+
+
+	block:		0x7f04b0daef20
+	mem:		0x7f04b0daef50
+	size:		2096
+	mem_size:	2048
+	state:		ASIGNED
+
+
+	block:		0x7f04b0daf750
+	mem:		0x7f04b0daf780
+	size:		1072
+	mem_size:	1024
+	state:		ASIGNED
+
+
+	block:		0x7f04b0dafb80
+	mem:		0x7f04b0dafbb0
+	size:		592
+	mem_size:	544
+	state:		ASIGNED
+
+
+	block:		0x7f04b0dafdd0
+	mem:		0x7f04b0dafe00
+	size:		592
+	mem_size:	544
+	state:		ASIGNED
+
+
+	block:		0x7f04b0db0020
+	mem:		0x7f04b0db0050
+	size:		608
+	mem_size:	560
+	state:		ASIGNED
+
+
+	block:		0x7f04b0db0280
+	mem:		0x7f04b0db02b0
+	size:		592
+	mem_size:	544
+	state:		ASIGNED
+
+
+	block:		0x7f04b0db04d0
+	mem:		0x7f04b0db0500
+	size:		608
+	mem_size:	560
+	state:		ASIGNED
+
+
+	block:		0x7f04b0db0730
+	mem:		0x7f04b0db0760
+	size:		592
+	mem_size:	544
+	state:		ASIGNED
+
+
+	block:		0x7f04b0db0980
+	mem:		0x7f04b0db09b0
+	size:		592
+	mem_size:	544
+	state:		ASIGNED
+
+
+	block:		0x7f04b0db0bd0
+	mem:		0x7f04b0db0c00
+	size:		1072
+	mem_size:	1024
+	state:		ASIGNED
+
+
+	block:		0x7f04b0db1000
+	mem:		0x7f04b0db1030
+	size:		1072
+	mem_size:	1024
+	state:		ASIGNED
+
+
+
+
+header: 0x7f04b0e07000
+	size: 24576
+	current: 20896
+	type: LARGE
+
+	block:		0x7f04b0e07030
+	mem:		0x7f04b0e07060
+	size:		20848
+	mem_size:	20800
+	state:		ASIGNED
+
+
+
+
+header: 0x7f04b0dfe000
+	size: 36864
+	current: 32912
+	type: LARGE
+
+	block:		0x7f04b0dfe030
+	mem:		0x7f04b0dfe060
+	size:		32864
+	mem_size:	32816
+	state:		ASIGNED
+
+
+
+
+header: 0x7f04b0dfd000
+	size: 4096
+	current: 2912
+	type: LARGE
+
+	block:		0x7f04b0dfd030
+	mem:		0x7f04b0dfd060
+	size:		2864
+	mem_size:	2816
+	state:		ASIGNED
+
+
+

@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include "./includes/galloc.h"
 
 void    print(char *s)
 {

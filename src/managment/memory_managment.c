@@ -48,6 +48,7 @@ void	defragment_header(t_block **block_src)
 		block->next = block->next->next;
 	}
 	block->mem = (t_block *)((uintptr_t)block + sizeof(t_block));
+	block->mem_size = block->size -  sizeof(t_block);
 	*block_src = block;
 }
 
@@ -64,7 +65,7 @@ void	split_block(t_block *block, size_t size)
 	// Check if is enough space for create a new complete block: struct 48 + mem 16 = 64
 	if (block->size - (size + sizeof(t_block)) < 64)
 		return ;
-	size_t padding = 16 - (size % 16);
+	size_t padding = (size % 16) ? 16 - (size % 16): 0;
 	block->mem_size = size + padding;
 	// create_block_from_ptr arguments:
 	//		-1: subtract the memory from the first block for the second block

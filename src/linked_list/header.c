@@ -28,7 +28,7 @@ t_header	*create_header_node(size_t size)
 int	check_free_blocks_size(size_t size, t_header *header)
 {
 	t_block	*block = header->blocks;
-	size_t padding = (16 % size)? 16 - 16 % size : 0;
+	size_t padding = (size % 16)? 16 - size % 16 : 0;
 	while (block)
 	{
 		if (block->state == FREE \
@@ -42,15 +42,21 @@ int	check_free_blocks_size(size_t size, t_header *header)
 
 t_header	*get_header_node(size_t size)
 {
+	size_t padding = (size % 16)? 16 - (size % 16): 0;
 	t_header *header = get_main_header();
+	if (get_type_header(size) == LARGE)
+		return create_header_node(size);
 	while (header)
 	{
 		if ((header->type == get_type_header(size) \
 			&& get_type_header(size) != LARGE \
-			&& header->size - header->current_size  >= size + sizeof(t_block)) \
-			|| check_free_blocks_size(size, header)) {
-			if (header->size < header->current_size)
+			&& header->size - header->current_size  >= size + sizeof(t_block) + padding) \
+			|| (check_free_blocks_size(size, header)
+				&& header->type == get_type_header(size))) {
+			if (header->size < header->current_size + size + sizeof(t_block) + padding) {
+				header = header->next;
 				continue;
+			}
 			return header;
 		}
 		header = header->next;
